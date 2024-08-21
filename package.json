@@ -2,14 +2,14 @@
   "name": "coffee-bot",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://n-n-kareev.github.io/coffee",
+  "homepage":"https://n-n-kareev.github.io/cofee/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "export": "next build && next export",
-    "deploy": "gh-pages -d out"
+    "deploy": "gh-pages -d .next"
   },
   "dependencies": {
     "next": "14.2.5",
