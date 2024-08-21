@@ -2,7 +2,7 @@
   "name": "coffee-bot",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://n-n-kareev.github.io/cofee/",
+  "homepage":"https://n-n-kareev.github.io/coffee/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
