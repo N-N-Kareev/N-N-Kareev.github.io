@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
     output: 'export',
     basePath: '/coffee-place'
 };
 
-export default nextConfig;
+
