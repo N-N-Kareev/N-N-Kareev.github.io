@@ -3,15 +3,20 @@ body {
   padding: 20px;
 }
 .menu {
-  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
 }
 .menu-item {
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 .menu-item img {
-  margin-right: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 .order-button {
   padding: 10px 20px;
@@ -19,4 +24,19 @@ body {
   color: white;
   border: none;
   cursor: pointer;
+  margin-top: 20px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.cart-item img {
+  border-radius: 10px;
+  margin-right: 10px;
+}
+.total-price {
+  margin-top: 20px;
+  font-weight: bold;
 }
