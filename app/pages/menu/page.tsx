@@ -83,7 +83,7 @@ const Menu = () => {
           </div>
         ))}
       </div>
-      <button type="button" onClick={goToCart}>
+      <button type="button" className='btn' onClick={goToCart}>
         Оформить заказ ({calculateTotal()} руб.)
       </button>
     </div>
