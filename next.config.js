@@ -4,7 +4,7 @@ module.exports = {
     missingSuspenseWithCSRBailout: false,
   },
     output: 'export',
-    basePath: '/coffee', // Замените 'your-repo-name' на имя вашего репозитория
+    basePath: '/', // Замените 'your-repo-name' на имя вашего репозитория
   };
 
 
