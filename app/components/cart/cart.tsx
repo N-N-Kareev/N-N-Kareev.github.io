@@ -62,13 +62,13 @@ import { useRouter, useSearchParams } from 'next/navigation'
   return (
     <div>
         <h1>Корзина</h1>
+        <button onClick={backToMenu} className='btn'>
+              Вернуться к Меню
+            </button>
         {cart.length === 0 ? (
           <p>Ваша корзина пуста.</p>
         ) : (
           <div>
-            <button onClick={backToMenu} className='btn'>
-              Вернуться к Меню
-            </button>
             {cart.map((item: any, index: number) => (
               <div key={index} className="cart-item">
                 <img src={item.image} alt={item.name} width={100} height={100} />
