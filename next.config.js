@@ -3,8 +3,8 @@ module.exports = {
   experimental: {
     missingSuspenseWithCSRBailout: false,
   },
-    output: 'export',
-    basePath: '/', // Замените 'your-repo-name' на имя вашего репозитория
+    // output: 'export',
+    // basePath: '/', // Замените 'your-repo-name' на имя вашего репозитория
   };
 
 
