@@ -1,4 +1,6 @@
-import React, { useEffect } from 'react';
+"use client";
+
+import  { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 import L from 'leaflet';
@@ -15,9 +17,17 @@ const CoffeeShopMap = () => {
     popupAnchor: [0, -38], 
   });
 
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
 
   return (
-<div  style={{ height: '250px', borderRadius: '10px', overflow: 'hidden' }}>
     <MapContainer center={position} zoom={22} style={{ height: '100%', width: '100%' }}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -33,7 +43,6 @@ const CoffeeShopMap = () => {
         </Popup>
       </Marker>
     </MapContainer>
-</div>
   );
 };
 

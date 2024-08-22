@@ -26,8 +26,9 @@ body {
 }
 
 .map-wrapper {
-  border: #465fab;
-  border-radius: 10px;
+  height: '250px';
+  border-radius: '10px';
+  overflow: 'hidden';
 }
 
 .marker-wrapper {
