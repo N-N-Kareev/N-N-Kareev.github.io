@@ -1,15 +1,12 @@
 'use client';
 
-import Head from 'next/head';
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation'
 
 
  const Cart = ()  =>{
 
     const [cart, setCart]: any = useState([]);
-    const router = useRouter();
     const searchParams = useSearchParams()
     const stateCart = searchParams.get('cart')
 
@@ -17,14 +14,11 @@ import { useSearchParams } from 'next/navigation'
   
     useEffect(() => {
       const cartString: any = stateCart;
-
-      // Загрузите корзину из localStorage или другого источника
-      const savedCart = JSON.parse(decodeURIComponent(cartString) as any);
+      const savedCart = JSON.parse(decodeURIComponent(cartString) as any) || [];
       setCart(savedCart);
     }, []);
   
     useEffect(() => {
-      // Сохраните корзину в localStorage при изменении
       localStorage.setItem('cart', JSON.stringify(cart));
     }, [cart]);
   
@@ -56,12 +50,8 @@ import { useSearchParams } from 'next/navigation'
   
 
   return (
+    <Suspense fallback={<div>Loading...</div>}>
     <div>
-      <Head>
-        <title>Корзина</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
-      <main>
         <h1>Корзина</h1>
         {cart.length === 0 ? (
           <p>Ваша корзина пуста.</p>
@@ -84,8 +74,10 @@ import { useSearchParams } from 'next/navigation'
             </div>
           </div>
         )}
-      </main>
     </div>
+  </Suspense>
+
+
   );
 }
 
