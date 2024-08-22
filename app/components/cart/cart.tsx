@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 
  const Cart = ()  =>{
@@ -9,6 +9,7 @@ import { useSearchParams } from 'next/navigation'
     const [cart, setCart]: any = useState([]);
     const searchParams = useSearchParams()
     const stateCart = searchParams.get('cart')
+    const router = useRouter()
 
 
   
@@ -46,7 +47,16 @@ import { useSearchParams } from 'next/navigation'
       setCart(updatedCart.filter((cartItem: any) => cartItem.quantity > 0));
     };
   
-    const totalPrice = cart.reduce((total: any, item: any) => total + item.price * item.quantity, 0);
+    const calculateTotal = () => {
+      return cart.reduce((total: number, item: any) => {
+        const price = parseFloat(item.price.replace(' руб.', ''));
+        return total + price * item.quantity;
+      }, 0);
+    };
+
+    const backToMenu = () => {
+      router.back()
+    }
   
 
   return (
@@ -56,6 +66,9 @@ import { useSearchParams } from 'next/navigation'
           <p>Ваша корзина пуста.</p>
         ) : (
           <div>
+            <button onClick={backToMenu} className='btn'>
+              Вернуться к Меню
+            </button>
             {cart.map((item: any, index: number) => (
               <div key={index} className="cart-item">
                 <img src={item.image} alt={item.name} width={100} height={100} />
@@ -69,8 +82,11 @@ import { useSearchParams } from 'next/navigation'
               </div>
             ))}
             <div className="total-price">
-              Общая стоимость: {totalPrice} руб.
+              Общая стоимость: {calculateTotal()} руб.
             </div>
+            <button className='btn'>
+              Добавить деталей к заказу 
+            </button>
           </div>
         )}
     </div>
