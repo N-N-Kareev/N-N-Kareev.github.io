@@ -1,16 +1,19 @@
+'use client';
 // pages/menu.js
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 
 
 const Menu = () => {
-  // const placeOrder = () => {
-  //   const order = prompt('Введите номер напитка:');
-  //   if (order) {
-  //     alert(`Вы заказали: ${order}`);
-  //     // Здесь можно добавить логику для отправки заказа на сервер или в Telegram
-  //   }
-  // };
+  const [order, setOrder] = useState('');
+
+  const placeOrder = () => {
+    const orderNumber = prompt('Введите номер напитка:');
+    if (orderNumber) {
+      setOrder(`Вы заказали: ${orderNumber}`);
+      // Здесь можно добавить логику для отправки заказа на сервер или в Telegram
+    }
+  };
 
   const menuItems = [
     { name: 'Эспрессо', price: '50 руб.', image: '/express.jfif' },
@@ -26,12 +29,13 @@ const Menu = () => {
         <div className="menu">
           {menuItems.map((item: any, index) => (
             <div key={index} className="menu-item">
-              <Image src={item.image} alt={item.name} width={150} height={150} />
+              <img src={item.image} alt={item.name} width={150} height={150} />
               <div>{index + 1}. {item.name} - {item.price}</div>
             </div>
           ))}
         </div>
-        {/* <button className="order-button" onClick={() => {}}>Заказать</button> */}
+        <button className="order-button" onClick={placeOrder}>Заказать</button>
+        {order && <div className="order-message">{order}</div>}
     </div>
   );
 }
