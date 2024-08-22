@@ -9,16 +9,25 @@ import { useRouter } from 'next/navigation'
 const Menu = () => {
   const router = useRouter()
   const [cart, setCart]: any = useState([]);
+  const menuItems = [
+    { name: 'Эспрессо', price: '50 руб.', image: '/express.jfif' },
+    { name: 'Американо', price: '70 руб.', image: '/americano.jfif' },
+    { name: 'Капучино', price: '100 руб.', image: '/capo.jfif' },
+    { name: 'Латте', price: '120 руб.', image: '/latte.jfif' },
+    { name: 'Мокко', price: '150 руб.', image: '/moco.jfif' },
+  ];
+
 
   useEffect(() => {
     // Загрузите корзину из localStorage при загрузке страницы
-    const savedCart: any = [];
+    const savedCart: any = JSON.parse(localStorage.getItem('cart') as any) || [];
+ [];
     setCart(savedCart);
   }, []);
 
   useEffect(() => {
     // Сохраните корзину в localStorage при изменении
-    localStorage.setItem('cart', JSON.stringify(cart));
+    router.push(`/pages/menu?cart=${encodeURIComponent(JSON.stringify(cart))}`);
   }, [cart]);
 
   const addToCart = (item: any) => {
@@ -31,24 +40,16 @@ const Menu = () => {
             : cartItem
         )
       );
+      localStorage.setItem('cart', JSON.stringify(cart));
     } else {
       setCart([...cart, { ...item, quantity: 1 }]);
+      localStorage.setItem('cart', JSON.stringify(cart));
     }
   };
 
-  const removeFromCart = (item: any) => {
-    const updatedCart = cart.filter((cartItem: any) => cartItem.name !== item.name);
-    setCart(updatedCart);
-  };
-
-  const increaseQuantity = (item: any) => {
-    setCart(
-      cart.map((cartItem: any) =>
-        cartItem.name === item.name
-          ? { ...cartItem, quantity: cartItem.quantity + 1 }
-          : cartItem
-      )
-    );
+  const goToCart = () => {
+    const cartString = JSON.stringify(cart);
+    router.push(`/pages/cart?cart=${encodeURIComponent(cartString)}`);
   };
 
   const decreaseQuantity = (item: any) => {
@@ -60,31 +61,25 @@ const Menu = () => {
     setCart(updatedCart.filter((cartItem: any) => cartItem.quantity > 0));
   };
 
-  const menuItems = [
-    { name: 'Эспрессо', price: '50 руб.', image: '/express.jfif' },
-    { name: 'Американо', price: '70 руб.', image: '/americano.jfif' },
-    { name: 'Капучино', price: '100 руб.', image: '/capo.jfif' },
-    { name: 'Латте', price: '120 руб.', image: '/latte.jfif' },
-    { name: 'Мокко', price: '150 руб.', image: '/moco.jfif' },
-  ];
-
   return (
     <div>
     <h1>Меню кофейни</h1>
     <div className="menu">
-          {menuItems.map((item, index) => (
-            <div key={index} className="menu-item">
-              <img src={item.image} alt={item.name} width={150} height={150} />
-              <div>{index + 1}. {item.name} - {item.price} руб.</div>
-              <button onClick={() => addToCart(item)}>Добавить в корзину</button>
+        {menuItems.map((item, index) => (
+          <div key={index} className="menu-item">
+            <img src={item.image} alt={item.name} width={100} height={100} />
+            <div>{index + 1}. {item.name} - {item.price} руб.</div>
+            <div className="quantity-controls">
+              <button onClick={() => decreaseQuantity(item)}>-</button>
+              <span>{cart.find((cartItem:any) => cartItem.name === item.name)?.quantity || 0}</span>
+              <button onClick={() =>  addToCart(item)}>+</button>
             </div>
-          ))}
-        </div>
-        {/* <link href="/pages/cart"> */}
-        <button type="button" onClick={() => router.push('/pages/cart')}>
-      Перейти в корзину
-    </button>
-        {/* </link> */}
+          </div>
+        ))}
+      </div>
+        <button type="button" onClick={goToCart}>
+          Перейти в корзину
+        </button>
     </div>
   );
 }

@@ -2,14 +2,24 @@
 
 import Head from 'next/head';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { useSearchParams } from 'next/navigation'
 
-export default function Cart() {
+
+ const Cart = ()  =>{
 
     const [cart, setCart]: any = useState([]);
+    const router = useRouter();
+    const searchParams = useSearchParams()
+    const stateCart = searchParams.get('cart')
+
+
   
     useEffect(() => {
+      const cartString: any = stateCart;
+
       // Загрузите корзину из localStorage или другого источника
-      const savedCart: any =  [];
+      const savedCart = JSON.parse(decodeURIComponent(cartString) as any);
       setCart(savedCart);
     }, []);
   
@@ -78,3 +88,5 @@ export default function Cart() {
     </div>
   );
 }
+
+export default Cart;
