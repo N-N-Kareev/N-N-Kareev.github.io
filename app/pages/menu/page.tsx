@@ -17,83 +17,113 @@ const Menu = () => {
       price: '50 руб.',
       image: '/express.jfif',
       description: 'Крепкий кофе, приготовленный под высоким давлением. Идеально для любителей насыщенного вкуса.',
-      category: 'Горячие напитки'
+      category: {
+        name: 'Горячие напитки',
+        description: 'Наши горячие напитки — это идеальный способ начать день или согреться в холодную погоду. Мы предлагаем широкий выбор кофе и других горячих напитков, приготовленных с любовью и заботой.'
+      },
     },
     {
       name: 'Американо',
       price: '70 руб.',
       image: '/americano.jfif',
       description: 'Эспрессо, разбавленный горячей водой. Легкий и освежающий напиток.',
-      category: 'Горячие напитки'
-    },
+      category: {
+        name: 'Горячие напитки',
+        description: 'Наши горячие напитки — это идеальный способ начать день или согреться в холодную погоду. Мы предлагаем широкий выбор кофе и других горячих напитков, приготовленных с любовью и заботой.'
+      },    },
     {
       name: 'Капучино',
       price: '100 руб.',
       image: '/capo.jfif',
       description: 'Эспрессо с добавлением вспененного молока. Нежный и кремовый вкус.',
-      category: 'Горячие напитки'
-    },
+      category: {
+        name: 'Горячие напитки',
+        description: 'Наши горячие напитки — это идеальный способ начать день или согреться в холодную погоду. Мы предлагаем широкий выбор кофе и других горячих напитков, приготовленных с любовью и заботой.'
+      },    },
     {
       name: 'Латте',
       price: '120 руб.',
       image: '/latte.jfif',
       description: 'Эспрессо с добавлением горячего молока и небольшим количеством молочной пены. Мягкий и сливочный вкус.',
-      category: 'Горячие напитки'
-    },
+      category: {
+        name: 'Горячие напитки',
+        description: 'Наши горячие напитки — это идеальный способ начать день или согреться в холодную погоду. Мы предлагаем широкий выбор кофе и других горячих напитков, приготовленных с любовью и заботой.'
+      },    },
     {
       name: 'Мокко',
       price: '150 руб.',
       image: '/moco.jfif',
       description: 'Эспрессо с добавлением горячего шоколада и вспененного молока. Сладкий и насыщенный вкус.',
-      category: 'Горячие напитки'
-    },
+      category: {
+        name: 'Горячие напитки',
+        description: 'Наши горячие напитки — это идеальный способ начать день или согреться в холодную погоду. Мы предлагаем широкий выбор кофе и других горячих напитков, приготовленных с любовью и заботой.'
+      },    },
     {
       name: 'Лимонад',
       price: '80 руб.',
       image: '/lemonade.jpg',
       description: 'Освежающий напиток с лимонным вкусом.',
-      category: 'Прохладительные напитки'
+      category:  {
+        name: 'Прохладительные напитки',
+        description: 'Наши прохладительные напитки — это отличный способ освежиться в жаркий день. Мы предлагаем широкий выбор лимонадов, соков, смузи и других освежающих напитков, приготовленных из натуральных ингредиентов.'
+      }
     },
     {
       name: 'Кола',
       price: '60 руб.',
       image: '/cola.jpg',
       description: 'Газированный напиток с освежающим вкусом.',
-      category: 'Прохладительные напитки'
-    },
+      category:  {
+        name: 'Прохладительные напитки',
+        description: 'Наши прохладительные напитки — это отличный способ освежиться в жаркий день. Мы предлагаем широкий выбор лимонадов, соков, смузи и других освежающих напитков, приготовленных из натуральных ингредиентов.'
+      }    },
     {
       name: 'Сок',
       price: '70 руб.',
       image: '/juice.jfif',
       description: 'Натуральный фруктовый сок.',
-      category: 'Прохладительные напитки'
-    },
+      category:  {
+        name: 'Прохладительные напитки',
+        description: 'Наши прохладительные напитки — это отличный способ освежиться в жаркий день. Мы предлагаем широкий выбор лимонадов, соков, смузи и других освежающих напитков, приготовленных из натуральных ингредиентов.'
+      }    },
     {
       name: 'Смузи',
       price: '100 руб.',
       image: '/smoothie.jpg',
       description: 'Густой напиток из фруктов и овощей.',
-      category: 'Прохладительные напитки'
+      category:  {
+        name: 'Прохладительные напитки',
+        description: 'Наши прохладительные напитки — это отличный способ освежиться в жаркий день. Мы предлагаем широкий выбор лимонадов, соков, смузи и других освежающих напитков, приготовленных из натуральных ингредиентов.'
+      }
     },
     {
       name: 'Морс',
       price: '90 руб.',
       image: '/mors.jpeg',
       description: 'Напиток из ягод с освежающим вкусом.',
-      category: 'Прохладительные напитки'
+      category:  {
+        name: 'Прохладительные напитки',
+        description: 'Наши прохладительные напитки — это отличный способ освежиться в жаркий день. Мы предлагаем широкий выбор лимонадов, соков, смузи и других освежающих напитков, приготовленных из натуральных ингредиентов.'
+      }
     }
   ];
 
-  const getUniqueCategories = (items: any) => {
-    const categoriesSet = items.reduce((set: any, item: any) => {
-      set.add(item.category);
-      return set;
-    }, new Set());
-      console.log(Array.from(categoriesSet));
-    return Array.from(categoriesSet);
-  };
+  function getUniqueCategories(products: any) {
+    const categorySet = new Set();
+    const uniqueCategories: any = [];
 
-  const [currentCategory, setCurrentCategory] = useState(getUniqueCategories(menuItems)[0] || '')
+    products.forEach((product: any) => {
+        const categoryName = product.category.name;
+        if (!categorySet.has(categoryName)) {
+            categorySet.add(categoryName);
+            uniqueCategories.push(product.category);
+        }
+    });
+
+    return uniqueCategories;
+}
+
+  // const [currentCategory, setCurrentCategory] = useState(getUniqueCategories(menuItems)[0] || '')
 
   useEffect(() => {
     menuItems.sort((item: any) => {return item.category})
@@ -145,30 +175,39 @@ const Menu = () => {
 
   return (
     <section>
-      <Header linList={getUniqueCategories(menuItems)} currentLink={currentCategory}/>
-      <div className="menu">
-        {menuItems.map((item, index) => (
-          <div key={index} className="menu-item">
-            <div className='img-wrapper'>
-            <Image className={'img'} src={item.image} alt={item.name} fill/>
-            </div>
-            <div className='cont-wrapper'>
-              <div className='card-title'>{item.name}.</div>
-              <div className='cart-description'>{item.description}</div>
-            <div className="quantity-controls">
-              {!cart.find((cartItem:any) => cartItem.name === item.name)?.quantity ? 
-                <button onClick={() =>  addToCart(item)}>{item.price}</button> : 
-              <div className='cout-wrapper'>
-                <button onClick={() => decreaseQuantity(item)}>-</button>
-                <span className='count-field'>{cart.find((cartItem:any) => cartItem.name === item.name)?.quantity}</span>
-                <button onClick={() =>  addToCart(item)}>+</button>
-              </div>
-              }
-            </div>
-            </div>
+      <Header linList={getUniqueCategories(menuItems)} currentLink={getUniqueCategories(menuItems)[0].name}/>
+      {getUniqueCategories(menuItems).map((category: any, index: number) => {
+        return <div key={index}>
+          <h3>{category.name}</h3>
+          <p>{category.description}</p>
+          <div className="menu">
+          {menuItems.map((item, index) => {
+          if(category.name !== item.category.name ) {
+            return null
+          }
+          return <div key={index} className="menu-item">
+          <div className='img-wrapper'>
+          <Image  src={item.image} alt={item.name} fill/>
           </div>
-        ))}
+          <div className='cont-wrapper'>
+            <div className='card-title'>{item.name}.</div>
+            <div className='cart-description'>{item.description}</div>
+          <div className="quantity-controls">
+            {!cart.find((cartItem:any) => cartItem.name === item.name)?.quantity ? 
+              <button onClick={() =>  addToCart(item)}>{item.price}</button> : 
+            <div className='cout-wrapper'>
+              <button onClick={() => decreaseQuantity(item)}>-</button>
+              <span className='count-field'>{cart.find((cartItem:any) => cartItem.name === item.name)?.quantity}</span>
+              <button onClick={() =>  addToCart(item)}>+</button>
+            </div>
+            }
+          </div>
+          </div>
+        </div>
+        })}
       </div>
+          </div>
+      })}
       <button type="button" className='btn payment' onClick={goToCart}>
         Оформить заказ {calculateTotal()} руб.
       </button>

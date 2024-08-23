@@ -15,11 +15,11 @@ const Header = (props: any) => {
                    
                    return (
                         <button 
-                            onClick={() => setActiveLink(link)}  
-                            className = {activeLink === link ? 'header-btn-active' : "header-btn"}
+                            onClick={() => setActiveLink(link.name)}  
+                            className = {activeLink === link.name ? 'header-btn-active' : "header-btn"}
                             key={index}
                         >
-                            {link}
+                            {link.name}
                         </button>
                     )
                 })
