@@ -2,6 +2,7 @@
 
 import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation'
+import Image from 'next/image';
 
 
  const Cart = ()  =>{
@@ -10,8 +11,6 @@ import { useRouter, useSearchParams } from 'next/navigation'
     const searchParams = useSearchParams()
     const stateCart = searchParams.get('cart')
     const router = useRouter()
-
-
   
     useEffect(() => {
       const cartString: any = stateCart;
@@ -54,14 +53,18 @@ import { useRouter, useSearchParams } from 'next/navigation'
       }, 0);
     };
 
+    const calculate = (count: any, price: any) => {
+      const clearPrice = parseFloat(price.replace(' руб.', ''));
+      return clearPrice * count
+    };    
+
     const backToMenu = () => {
       router.back()
     }
   
 
   return (
-    <div>
-        <h1>Корзина</h1>
+    <section>
         <button onClick={backToMenu} className='btn'>
               Вернуться к Меню
             </button>
@@ -71,25 +74,28 @@ import { useRouter, useSearchParams } from 'next/navigation'
           <div>
             {cart.map((item: any, index: number) => (
               <div key={index} className="cart-item">
-                <img src={item.image} alt={item.name} width={100} height={100} />
-                <div>{item.name} - {item.price} руб.</div>
+                <div className='cart-image'>
+                <Image className='cart-image' src={item.image} alt={item.name} width={80} height={80} />
+                </div>
+              <div className='cart-content-wrapper'>
+              <div className='cart-title-sum'>{item.name}  {calculate(item.quantity, item.price)} руб.</div>
                 <div className="quantity-controls">
                   <button onClick={() => decreaseQuantity(item)}>-</button>
                   <span>{item.quantity}</span>
                   <button onClick={() => increaseQuantity(item)}>+</button>
                 </div>
-                <button onClick={() => removeFromCart(item)}>Удалить</button>
+              </div>
               </div>
             ))}
             <div className="total-price">
               Общая стоимость: {calculateTotal()} руб.
             </div>
-            <button className='btn'>
+            <button className='btn payment'>
               Добавить деталей к заказу 
             </button>
           </div>
         )}
-    </div>
+    </section>
   );
 }
 
