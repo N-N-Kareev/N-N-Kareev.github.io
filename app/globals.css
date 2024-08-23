@@ -9,6 +9,7 @@ body {
 }
 .menu {
   display: grid;
+  height: 100%;
   grid-template-columns: repeat(auto-fill, minmax(130px, 2fr));
   gap: 20px;
 }
@@ -63,6 +64,11 @@ body {
   margin-bottom: 20px;
 }
 
+.cart-section {
+  position: relative;
+  height: 100vh;
+}
+
 .cart-item {
   display: flex;
   align-items: center;
@@ -76,7 +82,7 @@ body {
   height: 80px;
 }
 
-.cart-content-wrapper{
+.cart-content-wrapper {
   display: flexbox;
   width: 100%;
   margin-left: 24px;
@@ -84,7 +90,8 @@ body {
 
 .cart-title-sum {
   display: flex;
-  justify-content: space-between
+  justify-content: space-between;
+  margin-bottom: 16px;
 }
 
 .total-price {
@@ -157,4 +164,30 @@ body {
   left: 0;
   font-size: 16px;
   font-weight: bold;
+}
+
+.sum {
+  font-weight: bold;
+}
+
+.header {
+  position: sticky;
+  display: flex;
+  top: 8px;
+  gap: 16px;
+  z-index: 2;
+}
+
+.header-btn {
+  padding: 4px 8px;
+  border-radius: 10px;
+  border: none;
+}
+
+.header-btn-active {
+  padding: 4px 8px;
+  border-radius: 10px;
+  background-color: #465fab;
+  border: none;
+  color: white;
 }

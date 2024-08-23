@@ -71,17 +71,24 @@ import Image from 'next/image';
         {cart.length === 0 ? (
           <p>Ваша корзина пуста.</p>
         ) : (
-          <div>
+          <div className='cart-section'>
             {cart.map((item: any, index: number) => (
               <div key={index} className="cart-item">
                 <div className='cart-image'>
                 <Image className='cart-image' src={item.image} alt={item.name} width={80} height={80} />
                 </div>
               <div className='cart-content-wrapper'>
-              <div className='cart-title-sum'>{item.name}  {calculate(item.quantity, item.price)} руб.</div>
+                <div className='cart-title-sum'>
+                  <span>
+                    {item.name}
+                  </span> 
+                  <span className='sum'>
+                    {calculate(item.quantity, item.price)} руб.
+                  </span>
+                </div>
                 <div className="quantity-controls">
                   <button onClick={() => decreaseQuantity(item)}>-</button>
-                  <span>{item.quantity}</span>
+                  <span className='count-field'>{item.quantity}</span>
                   <button onClick={() => increaseQuantity(item)}>+</button>
                 </div>
               </div>

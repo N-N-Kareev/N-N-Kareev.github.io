@@ -4,12 +4,13 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation'
+import Header from '@/app/components/header';
 
 const Menu = () => {
   const router = useRouter();
   const search = useSearchParams();
   const [cart, setCart]: any = useState([]);
-  const category: string[] = []
+  const [categories, setCategories]: any = useState([]);
   const menuItems = [
     {
       name: 'Эспрессо',
@@ -83,7 +84,19 @@ const Menu = () => {
     }
   ];
 
+  const getUniqueCategories = (items: any) => {
+    const categoriesSet = items.reduce((set: any, item: any) => {
+      set.add(item.category);
+      return set;
+    }, new Set());
+      console.log(Array.from(categoriesSet));
+    return Array.from(categoriesSet);
+  };
+
+  const [currentCategory, setCurrentCategory] = useState(getUniqueCategories(menuItems)[0] || '')
+
   useEffect(() => {
+    menuItems.sort((item: any) => {return item.category})
     const savedCart: any = JSON.parse(localStorage.getItem('cart') as any) || [];
     setCart(savedCart);
     cart
@@ -131,7 +144,8 @@ const Menu = () => {
   };
 
   return (
-    <div>
+    <section>
+      <Header linList={getUniqueCategories(menuItems)} currentLink={currentCategory}/>
       <div className="menu">
         {menuItems.map((item, index) => (
           <div key={index} className="menu-item">
@@ -158,7 +172,7 @@ const Menu = () => {
       <button type="button" className='btn payment' onClick={goToCart}>
         Оформить заказ {calculateTotal()} руб.
       </button>
-    </div>
+    </section>
   );
 }
 
