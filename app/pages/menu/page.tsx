@@ -132,7 +132,6 @@ const Menu = () => {
 
   return (
     <div>
-      <h1>Меню кофейни</h1>
       <div className="menu">
         {menuItems.map((item, index) => (
           <div key={index} className="menu-item">

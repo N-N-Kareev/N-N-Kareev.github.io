@@ -9,7 +9,7 @@ body {
 }
 .menu {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(130px, 2fr));
   gap: 20px;
 }
 
@@ -17,11 +17,13 @@ body {
   position: relative;
   display: flexbox;
   border-radius: 10px;
-  padding: 20px;
+  padding: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   align-items: center;
   justify-content: center;
+  border-bottom: 1px solid #465fab;
+  border-top: 1px solid #465fab;
 }
 
 .map-wrapper {
@@ -59,15 +61,6 @@ body {
 .menu-item .img {
   border-radius: 10px;
   margin-bottom: 20px;
-}
-
-.order-button {
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
-  margin-top: 20px;
 }
 
 .cart-item {
