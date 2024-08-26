@@ -18,7 +18,8 @@ const Menu = () => {
       name: 'Эспрессо',
       price: '50 Р',
       image: '/express.jfif',
-      description: 'Крепкий кофе, приготовленный под высоким давлением. Идеально для любителей насыщенного вкуса.',
+      description: 'Состав: вода, кофейные зерна.',
+      weight: '30 мл',
       category: {
         icon: '/icons/coffee.png',
         name: 'Кофе',
@@ -29,52 +30,57 @@ const Menu = () => {
       name: 'Американо',
       price: '70 Р',
       image: '/americano.jfif',
-      description: 'Эспрессо, разбавленный горячей водой. Легкий и освежающий напиток.',
+      description: 'Состав: эспрессо, горячая вода.',
+      weight: '250 мл',
       category: {
         icon: '/icons/coffee.png',
         name: 'Кофе',
         description: 'Наши горячие напитки — это идеальный способ начать день или согреться в холодную погоду. Мы предлагаем широкий выбор кофе и других горячих напитков, приготовленных с любовью и заботой.'
-      },    
+      },
     },
     {
       name: 'Капучино',
       price: '100 Р',
       image: '/capo.jfif',
-      description: 'Эспрессо с добавлением вспененного молока. Нежный и кремовый вкус.',
+      description: 'Состав: эспрессо, вспененное молоко.',
+      weight: '200 мл',
       category: {
         icon: '/icons/coffee.png',
         name: 'Кофе',
         description: 'Наши горячие напитки — это идеальный способ начать день или согреться в холодную погоду. Мы предлагаем широкий выбор кофе и других горячих напитков, приготовленных с любовью и заботой.'
-      },    
+      },
     },
     {
       name: 'Латте',
       price: '120 Р',
       image: '/latte.jfif',
-      description: 'Эспрессо с добавлением горячего молока и небольшим количеством молочной пены. Мягкий и сливочный вкус.',
+      description: 'Состав: эспрессо, горячее молоко, молочная пена.',
+      weight: '250 мл',
       category: {
         icon: '/icons/coffee.png',
         name: 'Кофе',
         description: 'Наши горячие напитки — это идеальный способ начать день или согреться в холодную погоду. Мы предлагаем широкий выбор кофе и других горячих напитков, приготовленных с любовью и заботой.'
-      }, 
+      },
     },
     {
       name: 'Мокко',
       price: '150 Р',
       image: '/moco.jfif',
-      description: 'Эспрессо с добавлением горячего шоколада и вспененного молока. Сладкий и насыщенный вкус.',
+      description: 'Состав: эспрессо, горячий шоколад, вспененное молоко.',
+      weight: '250 мл',
       category: {
         icon: '/icons/coffee.png',
         name: 'Кофе',
         description: 'Наши горячие напитки — это идеальный способ начать день или согреться в холодную погоду. Мы предлагаем широкий выбор кофе и других горячих напитков, приготовленных с любовью и заботой.'
-      },    
+      },
     },
     {
       name: 'Лимонад',
       price: '80 Р',
       image: '/lemonade.jpg',
-      description: 'Освежающий напиток с лимонным вкусом.',
-      category:  {
+      description: 'Состав: вода, лимонный сок, сахар.',
+      weight: '300 мл',
+      category: {
         icon: '/icons/coffee.png',
         name: 'Напитки',
         description: 'Наши прохладительные напитки — это отличный способ освежиться в жаркий день. Мы предлагаем широкий выбор лимонадов, соков, смузи и других освежающих напитков, приготовленных из натуральных ингредиентов.'
@@ -84,19 +90,21 @@ const Menu = () => {
       name: 'Кола',
       price: '60 Р',
       image: '/cola.jpg',
-      description: 'Газированный напиток с освежающим вкусом.',
-      category:  {
+      description: 'Состав: газированная вода, сахар, ароматизаторы.',
+      weight: '330 мл',
+      category: {
         icon: '/icons/coffee.png',
         name: 'Напитки',
         description: 'Наши прохладительные напитки — это отличный способ освежиться в жаркий день. Мы предлагаем широкий выбор лимонадов, соков, смузи и других освежающих напитков, приготовленных из натуральных ингредиентов.'
-      }    
+      }
     },
     {
       name: 'Сок',
       price: '70 Р',
       image: '/juice.jfif',
-      description: 'Натуральный фруктовый сок.',
-      category:  {
+      description: 'Состав: натуральные фрукты.',
+      weight: '200 мл',
+      category: {
         icon: '/icons/coffee.png',
         name: 'Напитки',
         description: 'Наши прохладительные напитки — это отличный способ освежиться в жаркий день. Мы предлагаем широкий выбор лимонадов, соков, смузи и других освежающих напитков, приготовленных из натуральных ингредиентов.'
@@ -106,8 +114,9 @@ const Menu = () => {
       name: 'Смузи',
       price: '100 Р',
       image: '/smoothie.jpg',
-      description: 'Густой напиток из фруктов и овощей.',
-      category:  {
+      description: 'Состав: фрукты, овощи, йогурт.',
+      weight: '300 мл',
+      category: {
         icon: '/icons/coffee.png',
         name: 'Напитки',
         description: 'Наши прохладительные напитки — это отличный способ освежиться в жаркий день. Мы предлагаем широкий выбор лимонадов, соков, смузи и других освежающих напитков, приготовленных из натуральных ингредиентов.'
@@ -117,14 +126,18 @@ const Menu = () => {
       name: 'Морс',
       price: '90 Р',
       image: '/mors.jpeg',
-      description: 'Напиток из ягод с освежающим вкусом.',
-      category:  {
+      description: 'Состав: ягоды, вода, сахар.',
+      weight: '250 мл',
+      category: {
         icon: '/icons/coffee.png',
         name: 'Напитки',
         description: 'Наши прохладительные напитки — это отличный способ освежиться в жаркий день. Мы предлагаем широкий выбор лимонадов, соков, смузи и других освежающих напитков, приготовленных из натуральных ингредиентов.'
       }
     }
   ];
+  
+  
+  
 
   function getUniqueCategories(products: any) {
     const categorySet = new Set();
@@ -206,7 +219,7 @@ const Menu = () => {
             key={index} 
             className= {!cart.find((cartItem:any) => cartItem.name === item.name)?.quantity  ? css.menuItem : css.selectItem}>
           <div className={css.imgWrapper}>
-          <Image className='menu-item-image'  src={item.image} alt={item.name} fill/>
+          <Image className={css.itemImage}  src={item.image} alt={item.name} fill/>
           </div>
           <div className={css.contentWrapper}>
             <div className={css.cartTitle}>
@@ -215,10 +228,13 @@ const Menu = () => {
             <div className={css.cartDescription}>
               {item.description}
             </div>
+            <div className={css.cartWeight}>
+              {item.weight}
+            </div>
           </div>
           <div className={css.quantityControls}>
             {!cart.find((cartItem:any) => cartItem.name === item.name)?.quantity ? 
-              <button className='price-btn' onClick={() =>  addToCart(item)}>{item.price}</button> : 
+              <button className={css.priceBtn} onClick={() =>  addToCart(item)}>{item.price}</button> : 
             <div className={css.countWrapper}>
               <button className={css.countBtn} onClick={() => decreaseQuantity(item)}>-</button>
               <span className={css.countField}>{cart.find((cartItem:any) => cartItem.name === item.name)?.quantity}</span>

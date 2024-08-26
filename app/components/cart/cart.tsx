@@ -4,6 +4,8 @@ import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation'
 import Image from 'next/image';
 
+import css from './cart.module.css';
+
 
  const Cart = ()  =>{
 
@@ -85,19 +87,19 @@ import Image from 'next/image';
                     {item.name}
                   </span> 
                   <span className='sum'>
-                    {calculate(item.quantity, item.price)} руб.
+                    {calculate(item.quantity, item.price)} Р
                   </span>
                 </div>
-                <div className="quantity-controls">
-                  <button onClick={() => decreaseQuantity(item)}>-</button>
-                  <span className='count-field'>{item.quantity}</span>
-                  <button onClick={() => increaseQuantity(item)}>+</button>
+                <div className={css.quantityControls}>
+                  <button className={css.countBtn} onClick={() => decreaseQuantity(item)}>-</button>
+                  <span className={css.countField}>{item.quantity}</span>
+                  <button className={css.countBtn} onClick={() => increaseQuantity(item)}>+</button>
                 </div>
               </div>
               </div>
             ))}
             <div className="total-price">
-              Общая стоимость: {calculateTotal()} руб.
+              Общая стоимость: {calculateTotal()} Р
             </div>
           </div>
         )}

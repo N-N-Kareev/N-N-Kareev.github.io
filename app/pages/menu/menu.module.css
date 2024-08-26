@@ -54,7 +54,7 @@
   padding: 10px;
 }
 
-.menu-item-image {
+.itemImage {
   width: 100%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -113,6 +113,12 @@
   color: var(--tg-theme-hint-color);
 }
 
+.cartWeight {
+  font-size: 12px;
+  text-align: left;
+  color: var(--tg-theme-hint-color);
+}
+
 .btn {
   background: rgba(123, 217, 227, 1);
   border: none;
@@ -124,7 +130,7 @@
   color: var(--tg-theme-button-text-color);
 }
 
-button.price-btn {
+.priceBtn {
   width: 110px;
   padding: 0;
   color: var(--tg-theme-button-text-color);

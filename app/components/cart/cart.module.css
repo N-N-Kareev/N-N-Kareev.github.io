@@ -1,0 +1,47 @@
+.quantityControls {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-top: 20px;
+  }
+  
+  .quantityControls button {
+    height: 24px;
+    background: rgba(123, 217, 227, 1);
+    border: none;
+    cursor: pointer;
+    padding: 5px 12px;
+    border-radius: 12px;
+  }
+
+button.countBtn {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border-radius: 12px;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    justify-self: center;
+    text-align: center;
+  }
+
+  .countWrapper {
+    display: flex;
+    width: 116px;
+    height: 24px;
+    justify-content: space-between;
+  }
+
+  .countField {
+    display: flex;
+
+    min-width: 40px;
+    border-radius: 12px;
+    margin: auto 8px;
+    padding: 4px;
+    justify-content: center;
+    background: rgba(215, 244, 247, 1);
+    color: var(--tg-theme-text-color);
+  }
