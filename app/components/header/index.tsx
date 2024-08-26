@@ -10,6 +10,17 @@ const Header = (props: any) => {
 
     const [activeLink, setActiveLink] = useState(currentLink)
 
+    function gotToCategory(id: string) {
+        setActiveLink(id);
+        const content =  document.getElementById(id);
+        if(content) {
+            window.scrollTo({
+                top: content.offsetTop - 70,
+                behavior: 'smooth'
+              });
+        }
+    }
+
     return (
         <nav className={css.header}>
             {
@@ -18,7 +29,7 @@ const Header = (props: any) => {
                    return (
                        <div key={index}>
                          <button 
-                            onClick={() => setActiveLink(link.name)}  
+                            onClick={() => gotToCategory(link.name)}  
                             className = {activeLink === link.name ? css.active : css.btn}
                         >
                             <Image src={link.icon} alt="" width={20} height={20}/>

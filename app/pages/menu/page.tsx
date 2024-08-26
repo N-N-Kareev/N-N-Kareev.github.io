@@ -207,7 +207,7 @@ const Menu = () => {
     <Header linList={getUniqueCategories(menuItems)} currentLink={getUniqueCategories(menuItems)[0].name}/>
     <section>
       {getUniqueCategories(menuItems).map((category: any, index: number) => {
-        return <div className={css.content} key={index}>
+        return <div className={css.content} id={category.name} key={index}>
           <p className={css.categoryName}>{category.name}</p>
           <p className={css.categoryDescription}>{category.description}</p>
           <div className={css.menu}>
