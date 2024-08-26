@@ -1,15 +1,18 @@
 'use client';
-// pages/menu.js
+
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useRouter, useSearchParams } from 'next/navigation'
 import Header from '@/app/components/header';
 
+import css from './menu.module.css';
+
 const Menu = () => {
   const router = useRouter();
   const search = useSearchParams();
   const [cart, setCart]: any = useState([]);
-  const [categories, setCategories]: any = useState([]);
+  const params = new URLSearchParams(search.toString())
+
   const menuItems = [
     {
       name: 'Эспрессо',
@@ -191,35 +194,37 @@ const Menu = () => {
     <Header linList={getUniqueCategories(menuItems)} currentLink={getUniqueCategories(menuItems)[0].name}/>
     <section>
       {getUniqueCategories(menuItems).map((category: any, index: number) => {
-        return <div key={index}>
-          <p className='category-name'>{category.name}</p>
-          <p className='category-description'>{category.description}</p>
-          <div className="menu">
+        return <div className='content' key={index}>
+          <p className={css.categoryName}>{category.name}</p>
+          <p className={css.categoryDescription}>{category.description}</p>
+          <div className={css.menu}>
           {menuItems.map((item, index) => {
           if(category.name !== item.category.name ) {
             return null
           }
-          return <div key={index} className="menu-item">
-          <div className='img-wrapper'>
+          return <div 
+            key={index} 
+            className= {!cart.find((cartItem:any) => cartItem.name === item.name)?.quantity  ? css.menuItem : css.selectItem}>
+          <div className={css.imgWrapper}>
           <Image className='menu-item-image'  src={item.image} alt={item.name} fill/>
           </div>
-          <div className='cont-wrapper'>
-            <div className='cart-title'>
+          <div className={css.contentWrapper}>
+            <div className={css.cartTitle}>
               {item.name}
               </div>
-            <div className='cart-description'>
+            <div className={css.cartDescription}>
               {item.description}
             </div>
-          <div className="quantity-controls">
+          </div>
+          <div className={css.quantityControls}>
             {!cart.find((cartItem:any) => cartItem.name === item.name)?.quantity ? 
               <button className='price-btn' onClick={() =>  addToCart(item)}>{item.price}</button> : 
-            <div className='cout-wrapper'>
-              <button className='count-btn' onClick={() => decreaseQuantity(item)}>-</button>
-              <span className='count-field'>{cart.find((cartItem:any) => cartItem.name === item.name)?.quantity}</span>
-              <button className='count-btn' onClick={() =>  addToCart(item)}>+</button>
+            <div className={css.countWrapper}>
+              <button className={css.countBtn} onClick={() => decreaseQuantity(item)}>-</button>
+              <span className={css.countField}>{cart.find((cartItem:any) => cartItem.name === item.name)?.quantity}</span>
+              <button className={css.countBtn}  onClick={() =>  addToCart(item)}>+</button>
             </div>
             }
-          </div>
           </div>
         </div>
         })}

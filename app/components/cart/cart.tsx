@@ -16,7 +16,8 @@ import Image from 'next/image';
       const cartString: any = stateCart;
       const savedCart = JSON.parse(decodeURIComponent(cartString) as any) || [];
       setCart(savedCart);
-    }, []);
+    }, [stateCart]);
+
   
     useEffect(() => {
       localStorage.setItem('cart', JSON.stringify(cart));

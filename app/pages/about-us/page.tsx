@@ -2,6 +2,8 @@
 import CoffeeShopMap from "@/app/components/map";
 import { Suspense } from "react";
 
+import css from './about.module.css';
+
 const AboutPage = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>

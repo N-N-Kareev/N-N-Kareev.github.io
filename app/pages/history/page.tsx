@@ -1,5 +1,4 @@
-// pages/purchase-history.js
-import React from 'react';
+import css from './history.module.css';
 
 const PurchaseHistory = () => {
   return (
