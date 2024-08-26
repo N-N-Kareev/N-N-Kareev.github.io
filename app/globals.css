@@ -33,7 +33,6 @@ button {
 
 .category-description {
   font-size: 12px;
-  color:rgba(102, 102, 102, 1);
   color: var(--tg-theme-hint-color);
 }
 
@@ -112,7 +111,6 @@ button {
   display: flexbox;
   width: 100%;
   margin-left: 24px;
-  color: var(--tg-theme-text-color);
 }
 
 .cart-title-sum {
