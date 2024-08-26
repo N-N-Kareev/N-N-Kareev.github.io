@@ -34,7 +34,7 @@ button {
 .category-description {
   font-size: 12px;
   color:rgba(102, 102, 102, 1);
-  color: var(--tg-theme-text-color);
+  color: var(--tg-theme-hint-color);
 }
 
 .menu-item {
@@ -171,7 +171,7 @@ button {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: var(--tg-color-scheme);
+  color: var(--tg-theme-hint-color);
 }
 
 .btn {
