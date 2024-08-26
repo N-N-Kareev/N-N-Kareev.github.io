@@ -2,7 +2,6 @@
 // pages/menu.js
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation'
 import Header from '@/app/components/header';
 
@@ -14,95 +13,111 @@ const Menu = () => {
   const menuItems = [
     {
       name: 'Эспрессо',
-      price: '50 руб.',
+      price: '50 Р',
       image: '/express.jfif',
       description: 'Крепкий кофе, приготовленный под высоким давлением. Идеально для любителей насыщенного вкуса.',
       category: {
-        name: 'Горячие напитки',
+        icon: '/icons/coffee.png',
+        name: 'Кофе',
         description: 'Наши горячие напитки — это идеальный способ начать день или согреться в холодную погоду. Мы предлагаем широкий выбор кофе и других горячих напитков, приготовленных с любовью и заботой.'
       },
     },
     {
       name: 'Американо',
-      price: '70 руб.',
+      price: '70 Р',
       image: '/americano.jfif',
       description: 'Эспрессо, разбавленный горячей водой. Легкий и освежающий напиток.',
       category: {
-        name: 'Горячие напитки',
+        icon: '/icons/coffee.png',
+        name: 'Кофе',
         description: 'Наши горячие напитки — это идеальный способ начать день или согреться в холодную погоду. Мы предлагаем широкий выбор кофе и других горячих напитков, приготовленных с любовью и заботой.'
-      },    },
+      },    
+    },
     {
       name: 'Капучино',
-      price: '100 руб.',
+      price: '100 Р',
       image: '/capo.jfif',
       description: 'Эспрессо с добавлением вспененного молока. Нежный и кремовый вкус.',
       category: {
-        name: 'Горячие напитки',
+        icon: '/icons/coffee.png',
+        name: 'Кофе',
         description: 'Наши горячие напитки — это идеальный способ начать день или согреться в холодную погоду. Мы предлагаем широкий выбор кофе и других горячих напитков, приготовленных с любовью и заботой.'
-      },    },
+      },    
+    },
     {
       name: 'Латте',
-      price: '120 руб.',
+      price: '120 Р',
       image: '/latte.jfif',
       description: 'Эспрессо с добавлением горячего молока и небольшим количеством молочной пены. Мягкий и сливочный вкус.',
       category: {
-        name: 'Горячие напитки',
+        icon: '/icons/coffee.png',
+        name: 'Кофе',
         description: 'Наши горячие напитки — это идеальный способ начать день или согреться в холодную погоду. Мы предлагаем широкий выбор кофе и других горячих напитков, приготовленных с любовью и заботой.'
-      },    },
+      }, 
+    },
     {
       name: 'Мокко',
-      price: '150 руб.',
+      price: '150 Р',
       image: '/moco.jfif',
       description: 'Эспрессо с добавлением горячего шоколада и вспененного молока. Сладкий и насыщенный вкус.',
       category: {
-        name: 'Горячие напитки',
+        icon: '/icons/coffee.png',
+        name: 'Кофе',
         description: 'Наши горячие напитки — это идеальный способ начать день или согреться в холодную погоду. Мы предлагаем широкий выбор кофе и других горячих напитков, приготовленных с любовью и заботой.'
-      },    },
+      },    
+    },
     {
       name: 'Лимонад',
-      price: '80 руб.',
+      price: '80 Р',
       image: '/lemonade.jpg',
       description: 'Освежающий напиток с лимонным вкусом.',
       category:  {
-        name: 'Прохладительные напитки',
+        icon: '/icons/coffee.png',
+        name: 'Напитки',
         description: 'Наши прохладительные напитки — это отличный способ освежиться в жаркий день. Мы предлагаем широкий выбор лимонадов, соков, смузи и других освежающих напитков, приготовленных из натуральных ингредиентов.'
       }
     },
     {
       name: 'Кола',
-      price: '60 руб.',
+      price: '60 Р',
       image: '/cola.jpg',
       description: 'Газированный напиток с освежающим вкусом.',
       category:  {
-        name: 'Прохладительные напитки',
+        icon: '/icons/coffee.png',
+        name: 'Напитки',
         description: 'Наши прохладительные напитки — это отличный способ освежиться в жаркий день. Мы предлагаем широкий выбор лимонадов, соков, смузи и других освежающих напитков, приготовленных из натуральных ингредиентов.'
-      }    },
+      }    
+    },
     {
       name: 'Сок',
-      price: '70 руб.',
+      price: '70 Р',
       image: '/juice.jfif',
       description: 'Натуральный фруктовый сок.',
       category:  {
-        name: 'Прохладительные напитки',
+        icon: '/icons/coffee.png',
+        name: 'Напитки',
         description: 'Наши прохладительные напитки — это отличный способ освежиться в жаркий день. Мы предлагаем широкий выбор лимонадов, соков, смузи и других освежающих напитков, приготовленных из натуральных ингредиентов.'
-      }    },
+      }
+    },
     {
       name: 'Смузи',
-      price: '100 руб.',
+      price: '100 Р',
       image: '/smoothie.jpg',
       description: 'Густой напиток из фруктов и овощей.',
       category:  {
-        name: 'Прохладительные напитки',
+        icon: '/icons/coffee.png',
+        name: 'Напитки',
         description: 'Наши прохладительные напитки — это отличный способ освежиться в жаркий день. Мы предлагаем широкий выбор лимонадов, соков, смузи и других освежающих напитков, приготовленных из натуральных ингредиентов.'
       }
     },
     {
       name: 'Морс',
-      price: '90 руб.',
+      price: '90 Р',
       image: '/mors.jpeg',
       description: 'Напиток из ягод с освежающим вкусом.',
       category:  {
-        name: 'Прохладительные напитки',
+        icon: '/icons/coffee.png',
+        name: 'Напитки',
         description: 'Наши прохладительные напитки — это отличный способ освежиться в жаркий день. Мы предлагаем широкий выбор лимонадов, соков, смузи и других освежающих напитков, приготовленных из натуральных ингредиентов.'
       }
     }
@@ -190,15 +205,15 @@ const Menu = () => {
           <Image  src={item.image} alt={item.name} fill/>
           </div>
           <div className='cont-wrapper'>
-            <div className='card-title'>{item.name}.</div>
+            <div className='card-title'>{item.name}</div>
             <div className='cart-description'>{item.description}</div>
           <div className="quantity-controls">
             {!cart.find((cartItem:any) => cartItem.name === item.name)?.quantity ? 
-              <button onClick={() =>  addToCart(item)}>{item.price}</button> : 
+              <button className='price-btn' onClick={() =>  addToCart(item)}>{item.price}</button> : 
             <div className='cout-wrapper'>
-              <button onClick={() => decreaseQuantity(item)}>-</button>
+              <button className='count-btn' onClick={() => decreaseQuantity(item)}>-</button>
               <span className='count-field'>{cart.find((cartItem:any) => cartItem.name === item.name)?.quantity}</span>
-              <button onClick={() =>  addToCart(item)}>+</button>
+              <button className='count-btn' onClick={() =>  addToCart(item)}>+</button>
             </div>
             }
           </div>
@@ -209,7 +224,7 @@ const Menu = () => {
           </div>
       })}
       <button type="button" className='btn payment' onClick={goToCart}>
-        Оформить заказ {calculateTotal()} руб.
+        Корзина {calculateTotal() === 0? '' : calculateTotal() + ' P'}
       </button>
     </section>
   );

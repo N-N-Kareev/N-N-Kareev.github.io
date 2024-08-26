@@ -1,5 +1,6 @@
 'use-client';
 
+import Image from "next/image";
 import { useState } from "react";
 
 const Header = (props: any) => {
@@ -14,13 +15,15 @@ const Header = (props: any) => {
             linList.map((link: any, index: number) => {
                    
                    return (
-                        <button 
+                       <div key={index}>
+                         <button 
                             onClick={() => setActiveLink(link.name)}  
                             className = {activeLink === link.name ? 'header-btn-active' : "header-btn"}
-                            key={index}
                         >
-                            {link.name}
+                            <Image src={link.icon} alt="" width={20} height={20}/>
+                            <p>{link.name}</p>
                         </button>
+                       </div>
                     )
                 })
             }
