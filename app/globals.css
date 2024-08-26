@@ -84,13 +84,6 @@ button {
   font-weight: bold;
 }
 
-.quantity-controls {
-  display: flex;
-  height: 40px;
-  align-items: center;
-  justify-content: center;
-}
-
 .btn {
   background: rgba(123, 217, 227, 1);
   border: none;
@@ -118,6 +111,5 @@ button {
 }
 
 .sum {
-  font-weight: bold;
   color: var(--tg-theme-text-color);
 }
