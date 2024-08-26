@@ -4,9 +4,9 @@
   width: 100%;
   height: 28px;
   top: 0px;
-  background-color: var(--tg-theme-header-bg-color);
+  background-color: var(--tg-theme-bg-color, #ffffff); /* Используем CSS-переменную для фона */
+  color: var(--tg-theme-text-color, #000000); /* Используем CSS-переменную для текста */
   border-bottom: 1px solid rgba(225, 225, 225, 1);
-  color: var(--tg-color-scheme);
   padding: 8px 0px;
   z-index: 2;
 }
