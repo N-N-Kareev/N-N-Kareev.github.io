@@ -68,14 +68,16 @@ import css from './cart.module.css';
 
   return (
     <>
+      <button 
+        onClick={backToMenu}
+        className={css.backBtn}>
+          Вернуться к Меню
+      </button>
     <section>
-        <button onClick={backToMenu} className='btn'>
-              Вернуться к Меню
-            </button>
         {cart.length === 0 ? (
           <p>Ваша корзина пуста.</p>
         ) : (
-          <div className='cart-section'>
+          <div className={css.cartSection}>
             {cart.map((item: any, index: number) => (
               <div key={index} className="cart-item">
                 <div className='cart-image'>
@@ -105,7 +107,7 @@ import css from './cart.module.css';
         )}
     </section>
     <button className='btn payment'>
-    Добавить деталей к заказу 
+    Оформить заказ
   </button>
   </>
   );

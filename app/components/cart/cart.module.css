@@ -1,3 +1,10 @@
+.cartSection {
+    position: relative;
+    height: 100vh;
+    margin-bottom: 4vh;
+    color: var(--tg-theme-text-color);
+}
+
 .quantityControls {
     display: flex;
     align-items: center;
@@ -36,7 +43,6 @@ button.countBtn {
 
   .countField {
     display: flex;
-
     min-width: 40px;
     border-radius: 12px;
     margin: auto 8px;
@@ -44,4 +50,15 @@ button.countBtn {
     justify-content: center;
     background: rgba(215, 244, 247, 1);
     color: var(--tg-theme-text-color);
+  }
+
+  .backBtn {
+    position: fixed;
+    height: 40px;
+    background: rgba(123, 217, 227, 1);
+    border: none;
+    cursor: pointer;
+    padding: 5px 12px;
+    width: 100%;
+    z-index: 3;
   }
