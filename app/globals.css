@@ -5,7 +5,12 @@
 
 body {
   font-family: Arial, sans-serif;
-  padding: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+section {
+  padding:40px 20px;
 }
 
 button {
@@ -18,12 +23,20 @@ button {
   gap: 20px;
 }
 
+.category-name {
+
+}
+
+.category-description {
+  font-size: 12px;
+  color:rgba(102, 102, 102, 1);
+}
+
 .menu-item {
   position: relative;
   display: flexbox;
   border-radius: 10px;
-  padding: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -49,7 +62,6 @@ button {
   position: relative;
   width: 100%;
   height: 100px;
-  margin-bottom: 20px;
 }
 
 .cont-wrapper {
@@ -59,10 +71,13 @@ button {
   justify-content: center;
   align-content: center;
   justify-items: center;
+  padding: 10px;
 }
 
-.menu-item .img {
-  border-radius: 10px;
+.menu-item-image {
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   margin-bottom: 20px;
 }
 
@@ -114,7 +129,6 @@ button {
 }
 
 .quantity-controls button {
-  /* width: 110px; */
   height: 28px;
   background: rgba(123, 217, 227, 1);
   border: none;
@@ -130,7 +144,7 @@ button {
   margin: auto 8px;
 }
 
-.card-title {
+.cart-title {
   font-size: 16px;
   font-weight: bold;
   text-align: left;
@@ -167,13 +181,13 @@ button {
 }
 
 .payment {
-  width: 220px;
-  height: 37px;
+  width: 100vw;
+  height: 40px;
   position: fixed;
-  bottom: 8px;
+  bottom: 0px;
   margin: 0 auto ;
+  border-radius: 0;
   font-size: 16px;
-  border-radius: 18.5px;
   align-self: center;
   justify-content: center;
   justify-self: center;
@@ -187,9 +201,12 @@ button {
 .header {
   position: fixed;
   display: flex;
+  width: 100%;
   height: 28px;
-  top: 8px;
-  gap: 16px;
+  top: 0px;
+  background-color: white;
+  border-bottom: 1px solid rgba(225, 225, 225, 1);
+  padding: 8px 0px;
   z-index: 2;
 }
 
@@ -203,6 +220,7 @@ button {
   border: none;
   background: rgba(123, 217, 227, 0.3);
   font-size: 14px;
+  margin: 0 8px;
 }
 
 .header-btn-active {
@@ -214,4 +232,5 @@ button {
   border-radius: 14px;
   background: rgba(123, 217, 227, 1);
   border: none;
+  margin: 0 8px;
 }

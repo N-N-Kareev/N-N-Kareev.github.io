@@ -138,8 +138,6 @@ const Menu = () => {
     return uniqueCategories;
 }
 
-  // const [currentCategory, setCurrentCategory] = useState(getUniqueCategories(menuItems)[0] || '')
-
   useEffect(() => {
     menuItems.sort((item: any) => {return item.category})
     const savedCart: any = JSON.parse(localStorage.getItem('cart') as any) || [];
@@ -189,12 +187,13 @@ const Menu = () => {
   };
 
   return (
+   <>
+    <Header linList={getUniqueCategories(menuItems)} currentLink={getUniqueCategories(menuItems)[0].name}/>
     <section>
-      <Header linList={getUniqueCategories(menuItems)} currentLink={getUniqueCategories(menuItems)[0].name}/>
       {getUniqueCategories(menuItems).map((category: any, index: number) => {
         return <div key={index}>
-          <h3>{category.name}</h3>
-          <p>{category.description}</p>
+          <p className='category-name'>{category.name}</p>
+          <p className='category-description'>{category.description}</p>
           <div className="menu">
           {menuItems.map((item, index) => {
           if(category.name !== item.category.name ) {
@@ -202,11 +201,15 @@ const Menu = () => {
           }
           return <div key={index} className="menu-item">
           <div className='img-wrapper'>
-          <Image  src={item.image} alt={item.name} fill/>
+          <Image className='menu-item-image'  src={item.image} alt={item.name} fill/>
           </div>
           <div className='cont-wrapper'>
-            <div className='card-title'>{item.name}</div>
-            <div className='cart-description'>{item.description}</div>
+            <div className='cart-title'>
+              {item.name}
+              </div>
+            <div className='cart-description'>
+              {item.description}
+            </div>
           <div className="quantity-controls">
             {!cart.find((cartItem:any) => cartItem.name === item.name)?.quantity ? 
               <button className='price-btn' onClick={() =>  addToCart(item)}>{item.price}</button> : 
@@ -223,10 +226,11 @@ const Menu = () => {
       </div>
           </div>
       })}
-      <button type="button" className='btn payment' onClick={goToCart}>
+    </section>
+    <button type="button" className='btn payment' onClick={goToCart}>
         Корзина {calculateTotal() === 0? '' : calculateTotal() + ' P'}
       </button>
-    </section>
+    </>
   );
 }
 

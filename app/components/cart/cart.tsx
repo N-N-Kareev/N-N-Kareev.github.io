@@ -64,6 +64,7 @@ import Image from 'next/image';
   
 
   return (
+    <>
     <section>
         <button onClick={backToMenu} className='btn'>
               Вернуться к Меню
@@ -97,12 +98,13 @@ import Image from 'next/image';
             <div className="total-price">
               Общая стоимость: {calculateTotal()} руб.
             </div>
-            <button className='btn payment'>
-              Добавить деталей к заказу 
-            </button>
           </div>
         )}
     </section>
+    <button className='btn payment'>
+    Добавить деталей к заказу 
+  </button>
+  </>
   );
 }
 
