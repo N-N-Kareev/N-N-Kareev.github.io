@@ -111,6 +111,7 @@ const ProductPage = () => {
     {existingItem ? (
         <div>
         <div className={css.quantityControls}>
+        <button onClick={() => router.back()}>{'<'}</button>
         <div className={css.countWrapper}>
             <button className={css.countBtn} onClick={() => setQuantityToAdd(quantityToAdd - 1)} disabled={quantityToAdd <= 1}>-</button>
             <span className={css.countField}>{quantityToAdd}</span>
@@ -120,7 +121,9 @@ const ProductPage = () => {
         </div>
         </div>
       ) : (
+        
       <div className={css.quantityControls}>
+        <button onClick={() => router.back()}>{'<'}</button>
         <div className={css.countWrapper}>
         <button className={css.countBtn} onClick={() => setQuantityToAdd(quantityToAdd - 1)} disabled={quantityToAdd <= 1}>-</button>
         <span className={css.countField}>{quantityToAdd}</span>
