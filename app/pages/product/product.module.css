@@ -33,16 +33,6 @@
     padding: 0;
     justify-content: space-between;
   }
-  
-  /* .contentWrapper {
-    height: 88px;
-    display: flexbox;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    justify-items: center;
-    padding: 0 10px;
-  } */
 
   .productText {
     height: fit-content;
@@ -62,6 +52,7 @@
   
   .quantityControls button {
     height: 40px;
+    font-size: 16px;
     background: rgba(123, 217, 227, 1);
     border: none;
     cursor: pointer;
