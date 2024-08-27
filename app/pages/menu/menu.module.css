@@ -7,12 +7,14 @@
 }
 
 .categoryName {
-
+  padding: 0;
+  margin: 8px 0;
 }
 
 .categoryDescription {
   font-size: 12px;
-  color: var(--tg-theme-hint-color);
+  color: var(--tg-theme-hint-color, rgba(0, 0, 0, 0.5));
+  margin: 0 0 4px;
 }
 
 .menuItem {
@@ -82,14 +84,14 @@
   display: flex;
   width: 116px;
   height: 24px;
+  align-items: center;
   justify-content: space-between;
 }
 
 .countField {
   min-width: 40px;
-  border-radius: 12px;
+  border-radius: 20px;
   margin: auto 8px;
-  padding: 4px;
   background: rgba(215, 244, 247, 1);
   color: var(--tg-theme-text-color);
 }
@@ -117,13 +119,13 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: var(--tg-theme-hint-color);
+  color: var(--tg-theme-hint-color, rgba(0, 0, 0, 0.5));
 }
 
 .cartWeight {
   font-size: 12px;
   text-align: left;
-  color: var(--tg-theme-hint-color);
+  color: var(--tg-theme-hint-color, rgba(0, 0, 0, 0.5));
 }
 
 .btn {

@@ -1,3 +1,17 @@
+@font-face {
+  font-family: 'Jost';
+  src: url('/fonts/Jost-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Jost';
+  src: url('/fonts/Jost-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
 .header {
   position: fixed;
   display: flex;
@@ -8,6 +22,7 @@
   color: var(--tg-theme-text-color, #000000); /* Используем CSS-переменную для текста */
   border-bottom: 1px solid rgba(225, 225, 225, 1);
   padding: 8px 0px;
+  font-family: 'Jost', sans-serif;
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
   scrollbar-width: none;  /* Firefox */
   z-index: 2;
@@ -28,6 +43,7 @@
   border: none;
   background: rgba(123, 217, 227, 0.3);
   font-size: 14px;
+  font-family: 'Jost', sans-serif;
   margin: 0 8px;
   color: var(--tg-theme-text-color);
   gap: 4px;
@@ -44,6 +60,7 @@
   border: none;
   background: rgba(123, 217, 227, 1);
   font-size: 14px;
+  font-family: 'Jost', sans-serif;
   margin: 0 8px;
   color: var(--tg-theme-text-color);
   gap: 4px;

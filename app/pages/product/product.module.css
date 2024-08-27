@@ -1,8 +1,23 @@
+@font-face {
+  font-family: 'Jost';
+  src: url('/fonts/Jost-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Jost';
+  src: url('/fonts/Jost-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
 .productPage {
     display: flex;
     flex-direction: column;
     height: 100vh;
     justify-content: space-between;
+    font-family: 'Jost', sans-serif;
   }
 
   .backBtn {
@@ -36,6 +51,7 @@
     text-align: left;
     margin-bottom: 8px;
     color: var(--tg-theme-text-color);
+    font-family: 'Jost', sans-serif;
   }
 
   .description {
@@ -51,6 +67,7 @@
   .productText {
     height: fit-content;
     padding: 0 20px;
+    font-family: 'Jost', sans-serif;
   }
 
   .quantity{
@@ -62,6 +79,7 @@
     background: rgba(245, 245, 245, 1);
     padding: 8px 20px;
     margin-top: 48px;
+    font-family: 'Jost', sans-serif;
   }
 
   .quantityDescription {
@@ -69,6 +87,7 @@
     font-size: 15px;
     text-align: left;
     color: var(--tg-theme-hint-color, rgba(0, 0, 0, 0.5));
+    font-family: 'Jost', sans-serif;
   }
 
   p.quantityItem {
@@ -99,6 +118,7 @@
     padding: 5px 12px;
     border-radius: 20px;
     border: 0;
+    font-family: 'Jost', sans-serif;
   }
   
   .countWrapper {
@@ -106,6 +126,7 @@
     height: 40px;
     align-items: center;
     justify-content: space-between;
+    font-family: 'Jost', sans-serif;
   }
   
   .countField {
@@ -119,26 +140,22 @@
     color: var(--tg-theme-text-color);
     align-items: center;
     justify-content:center ;
+    font-family: 'Jost', sans-serif;
   }
   
   .cartDescription {
-    font-size: 12px;
+    font-size: 16px;
     text-align: left;
     margin-bottom: 8px;
     display: -webkit-box;
-    -webkit-line-clamp: 5; /* Количество строк, которые будут видны */
+    -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
     color: var(--tg-theme-hint-color, rgba(0, 0, 0, 0.5));
+    font-family: 'Jost', sans-serif;
   }
-  
-  .cartWeight {
-    font-size: 12px;
-    text-align: left;
-    color: var(--tg-theme-hint-color);
-  }
-  
+
   .btn {
     background: rgba(123, 217, 227, 1);
     border: none;
@@ -146,11 +163,13 @@
     padding: 10px 20px;
     border-radius: 20px;
     color: var(--tg-theme-button-text-color);
+    font-family: 'Jost', sans-serif;
   }
   
   .priceBtn {
     border-radius: 20px;
     color: var(--tg-theme-button-text-color);
+    font-family: 'Jost', sans-serif;
   }
   
   button.countBtn {
@@ -164,10 +183,12 @@
     align-content: center;
     justify-self: center;
     text-align: center;
+    font-family: 'Jost', sans-serif;
   }
   
   .sum {
     font-weight: bold;
     color: var(--tg-theme-text-color);
+    font-family: 'Jost', sans-serif;
   }
   
