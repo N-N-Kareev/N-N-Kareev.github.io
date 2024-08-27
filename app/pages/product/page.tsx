@@ -69,6 +69,21 @@ const ProductPage = () => {
     router.push('/pages/menu');
   };
 
+  const addNewCart = (item: any) => {
+    const existingItem = cart.find((cartItem: any) => cartItem.name === item.name);
+    if (existingItem) {
+      setCart(
+        cart.map((cartItem: any) =>
+          cartItem.name === item.name
+            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            : cartItem
+        )
+      );
+    } else {
+      setCart([...cart, { ...item, quantity: 1 }]);
+    }
+  };
+
   const existingItem = cart.find((cartItem: any) => cartItem.name === product.name);
 
   return (
@@ -89,7 +104,7 @@ const ProductPage = () => {
           <button onClick={() => { addToCart(product); goToMenu(); }}>Добавить в корзину</button>
         </div>
       ) : (
-        <button onClick={() => { addToCart(product); goToMenu(); }}>{product.price}</button>
+        <button onClick={() => { addNewCart(product) }}>{product.price}</button>
       )}
       <button onClick={() => router.back()}>Назад</button>
     </div>
