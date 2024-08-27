@@ -6,17 +6,8 @@ import Image from 'next/image';
 
 import css from './cart.module.css';
 
-interface CartItem {
-  name: string;
-  price: string;
-  image: string;
-  description: string;
-  weight: string;
-  quantity: number;
-}
-
 const Cart: React.FC = () => {
-  const [cart, setCart] = useState<CartItem[]>([]);
+  const [cart, setCart] = useState<any[]>([]);
   const searchParams = useSearchParams();
   const stateCart = searchParams.get('cart');
   const router = useRouter();
@@ -27,7 +18,7 @@ const Cart: React.FC = () => {
       setCart(JSON.parse(savedCart));
     } else if (stateCart) {
       const cartString = stateCart;
-      const initialCart = JSON.parse(decodeURIComponent(cartString)) || [];
+      const initialCart = JSON.parse(cartString) || [];
       setCart(initialCart);
     }
   }, [stateCart]);
@@ -40,12 +31,12 @@ const Cart: React.FC = () => {
     }
   }, [cart]);
 
-  const removeFromCart = (item: CartItem) => {
+  const removeFromCart = (item: any) => {
     const updatedCart = cart.filter((cartItem) => cartItem.name !== item.name);
     setCart(updatedCart);
   };
 
-  const increaseQuantity = (item: CartItem) => {
+  const increaseQuantity = (item: any) => {
     setCart(
       cart.map((cartItem) =>
         cartItem.name === item.name
@@ -55,7 +46,7 @@ const Cart: React.FC = () => {
     );
   };
 
-  const decreaseQuantity = (item: CartItem) => {
+  const decreaseQuantity = (item: any) => {
     const updatedCart = cart.map((cartItem) =>
       cartItem.name === item.name
         ? { ...cartItem, quantity: cartItem.quantity - 1 }

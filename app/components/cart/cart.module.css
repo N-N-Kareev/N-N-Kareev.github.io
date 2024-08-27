@@ -141,10 +141,12 @@ button.countBtn {
 
   .btnWrapper {
     display: flex;
-    position: sticky;
+    position: fixed;
     left: 0px;
     top: 0px;
     margin-bottom: 10px;
+    background-color: var(--tg-theme-bg-color, #ffffff); /* Используем CSS-переменную для фона */
+    color: var(--tg-theme-text-color, #000000); /* Используем CSS-переменную для текста */
   }
 
   .sum {

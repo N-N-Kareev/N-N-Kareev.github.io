@@ -255,7 +255,7 @@ const Menu = () => {
 
   const goToCart = () => {
     const cartString = JSON.stringify(cart);
-    router.push(`/pages/cart?cart=${encodeURIComponent(cartString)}`);
+    router.push(`/pages/cart`);
   };
 
   const decreaseQuantity = (item: any) => {
