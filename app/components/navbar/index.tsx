@@ -1,22 +1,15 @@
 // components/Navbar.js
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+
+import css from './navbar.module.css';
 
 const Navbar = () => {
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link href="/pages/menu">Menu</Link>
-        </li>
-        <li>
-          <Link href="/pages/history">Purchase History</Link>
-        </li>
-        <li>
-          <Link href="/pages/profile">Account</Link>
-        </li>
-      </ul>
-    </nav>
+   <header className={css.imageWrapper}>
+     <Image className={css.headerImage} src={'/header-image.png'} alt='' fill/> 
+  </header>
   );
 };
 

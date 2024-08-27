@@ -47,23 +47,23 @@ const ProductPage = () => {
     setQuantityToAdd(1); // Сброс количества после добавления
   };
 
-  const decreaseQuantity = (item: any) => {
-    const updatedCart = cart.map((cartItem: any) =>
-      cartItem.name === item.name
-        ? { ...cartItem, quantity: cartItem.quantity - 1 }
-        : cartItem
-    );
-    setCart(updatedCart.filter((cartItem: any) => cartItem.quantity > 0));
-  };
+  // const decreaseQuantity = (item: any) => {
+  //   const updatedCart = cart.map((cartItem: any) =>
+  //     cartItem.name === item.name
+  //       ? { ...cartItem, quantity: cartItem.quantity - 1 }
+  //       : cartItem
+  //   );
+  //   setCart(updatedCart.filter((cartItem: any) => cartItem.quantity > 0));
+  // };
 
-  const increaseQuantity = (item: any) => {
-    const updatedCart = cart.map((cartItem: any) =>
-      cartItem.name === item.name
-        ? { ...cartItem, quantity: cartItem.quantity + 1 }
-        : cartItem
-    );
-    setCart(updatedCart);
-  };
+  // const increaseQuantity = (item: any) => {
+  //   const updatedCart = cart.map((cartItem: any) =>
+  //     cartItem.name === item.name
+  //       ? { ...cartItem, quantity: cartItem.quantity + 1 }
+  //       : cartItem
+  //   );
+  //   setCart(updatedCart);
+  // };
 
   const goToMenu = () => {
     router.push('/pages/menu');
@@ -95,25 +95,28 @@ const ProductPage = () => {
 
   return (
     <div className={css.productPage}>
+      <div>
       <div className={css.imageWrapper}>
-        <Image src={product.image} alt={product.name} fill />
+        <Image className={css.image} src={product.image} alt={product.name} fill />
       </div>
     <div className={css.content}>
     <div className={css.productText}>
-    <h1 className={css.name}>{product.name}</h1>
-      <p className={css.description}>{product.description}</p>
-      <p>{product.weight}</p>
-      <p>{product.price}</p>
-      {existingItem ? (
+      <p className={css.name}>{product.name}</p>
+      <p className={css.cartDescription}>{product.description}</p>
+      <p className={css.cartDescription}>{product.weight}</p>
+      {existingItem && <p>Количество в корзине: {existingItem.quantity}</p>}
+    </div>
+    </div>
+      </div>
+    {existingItem ? (
         <div>
-          <p>Количество в корзине: {existingItem.quantity}</p>
         <div className={css.quantityControls}>
         <div className={css.countWrapper}>
             <button className={css.countBtn} onClick={() => setQuantityToAdd(quantityToAdd - 1)} disabled={quantityToAdd <= 1}>-</button>
             <span className={css.countField}>{quantityToAdd}</span>
             <button className={css.countBtn} onClick={() => setQuantityToAdd(quantityToAdd + 1)}>+</button>
           </div>
-          <button onClick={() => { addToCart(product); goToMenu(); }}>{calculate(quantityToAdd, product.price) + ' Р'}</button>
+          <button className={css.priceBtn} onClick={() => { addToCart(product); goToMenu(); }}>{'Добавить ' + calculate(quantityToAdd, product.price) + ' Р'}</button>
         </div>
         </div>
       ) : (
@@ -123,11 +126,9 @@ const ProductPage = () => {
         <span className={css.countField}>{quantityToAdd}</span>
         <button className={css.countBtn} onClick={() => setQuantityToAdd(quantityToAdd + 1)}>+</button>
       </div>
-      <button onClick={() => { addToCart(product); goToMenu(); }}>{calculate(quantityToAdd, product.price) + ' Р'}</button>
+      <button className={css.priceBtn} onClick={() => { addToCart(product); goToMenu(); }}>{'Добавить ' + calculate(quantityToAdd, product.price) + ' Р'}</button>
     </div>
       )}
-    </div>
-    </div>
     </div>
   );
 };

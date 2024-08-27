@@ -6,7 +6,6 @@ import Image from 'next/image';
 
 import css from './cart.module.css';
 
-// Определение типов
 interface CartItem {
   name: string;
   price: string;

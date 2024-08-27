@@ -1,6 +1,7 @@
 .cartSection {
     position: relative;
     height: 100%;
+    margin-top: 10px;
     margin-bottom: 6vh;
     color: var(--tg-theme-text-color);
 }

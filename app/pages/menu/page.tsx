@@ -184,10 +184,6 @@ const Menu = () => {
       }
     }
   ];
-  
-  
-  
-  
 
   function getUniqueCategories(products: any) {
     const categorySet = new Set();
