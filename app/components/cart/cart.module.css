@@ -147,6 +147,7 @@ button.countBtn {
     margin-bottom: 10px;
     background-color: var(--tg-theme-bg-color, #ffffff); /* Используем CSS-переменную для фона */
     color: var(--tg-theme-text-color, #000000); /* Используем CSS-переменную для текста */
+    z-index: 6;
   }
 
   .sum {
