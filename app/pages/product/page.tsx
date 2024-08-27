@@ -84,29 +84,50 @@ const ProductPage = () => {
     }
   };
 
+  const calculate = (count: number, price: string) => {
+    console.log(count);
+    
+    const clearPrice = parseFloat(price.replace(' руб.', ''));
+    return clearPrice * count;
+  };
+
   const existingItem = cart.find((cartItem: any) => cartItem.name === product.name);
 
   return (
     <div className={css.productPage}>
-      <Image src={product.image} alt={product.name} width={300} height={300} />
-      <h1>{product.name}</h1>
-      <p>{product.description}</p>
+      <div className={css.imageWrapper}>
+        <Image src={product.image} alt={product.name} fill />
+      </div>
+    <div className={css.content}>
+    <div className={css.productText}>
+    <h1 className={css.name}>{product.name}</h1>
+      <p className={css.description}>{product.description}</p>
       <p>{product.weight}</p>
       <p>{product.price}</p>
       {existingItem ? (
         <div>
           <p>Количество в корзине: {existingItem.quantity}</p>
-          <div className={css.countWrapper}>
+        <div className={css.quantityControls}>
+        <div className={css.countWrapper}>
             <button className={css.countBtn} onClick={() => setQuantityToAdd(quantityToAdd - 1)} disabled={quantityToAdd <= 1}>-</button>
             <span className={css.countField}>{quantityToAdd}</span>
             <button className={css.countBtn} onClick={() => setQuantityToAdd(quantityToAdd + 1)}>+</button>
           </div>
-          <button onClick={() => { addToCart(product); goToMenu(); }}>Добавить в корзину</button>
+          <button onClick={() => { addToCart(product); goToMenu(); }}>{calculate(quantityToAdd, product.price) + ' Р'}</button>
+        </div>
         </div>
       ) : (
-        <button onClick={() => { addNewCart(product) }}>{product.price}</button>
+      <div className={css.quantityControls}>
+        <div className={css.countWrapper}>
+        <button className={css.countBtn} onClick={() => setQuantityToAdd(quantityToAdd - 1)} disabled={quantityToAdd <= 1}>-</button>
+        <span className={css.countField}>{quantityToAdd}</span>
+        <button className={css.countBtn} onClick={() => setQuantityToAdd(quantityToAdd + 1)}>+</button>
+      </div>
+      <button onClick={() => { addToCart(product); goToMenu(); }}>{calculate(quantityToAdd, product.price) + ' Р'}</button>
+    </div>
       )}
-      <button onClick={() => router.back()}>Назад</button>
+    </div>
+    </div>
     </div>
   );
 };
