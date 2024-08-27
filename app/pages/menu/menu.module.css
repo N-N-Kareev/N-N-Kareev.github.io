@@ -100,6 +100,12 @@
   text-align: left;
   margin-bottom: 8px;
   color: var(--tg-theme-text-color);
+  display: -webkit-box;
+  width: 70%;
+  -webkit-line-clamp: 2; /* Количество строк, которые будут видны */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .cartDescription {

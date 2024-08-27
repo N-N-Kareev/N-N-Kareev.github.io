@@ -68,12 +68,6 @@ button {
   margin-left: 24px;
 }
 
-.cart-title-sum {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 16px;
-}
-
 .total-price {
   margin-top: 20px;
   font-weight: bold;

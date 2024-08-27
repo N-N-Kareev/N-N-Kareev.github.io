@@ -11,7 +11,8 @@ const Menu = () => {
   const router = useRouter();
   const search = useSearchParams();
   const [cart, setCart]: any = useState([]);
-  const params = new URLSearchParams(search.toString())
+  const params = new URLSearchParams(search.toString());
+  const stateCart = search.get('cart');
 
   const menuItems = [
     {
@@ -133,8 +134,57 @@ const Menu = () => {
         name: 'Напитки',
         description: 'Наши прохладительные напитки — это отличный способ освежиться в жаркий день. Мы предлагаем широкий выбор лимонадов, соков, смузи и других освежающих напитков, приготовленных из натуральных ингредиентов.'
       }
+    },
+    {
+      name: 'Каша рисовая с ягодами и орехами',
+      price: '239 Р',
+      image: '/food2.png',
+      description: 'Состав: рис, ягоды, орехи.',
+      weight: '300 г',
+      category: {
+        icon: '/icons/food.png',
+        name: 'Основные блюда',
+        description: 'Мы предлагаем широкий выбор блюд, которые подарят вам заряд энергии на весь день. Наши блюда — это сочетание вкуса и качества. Мы используем только свежие и натуральные продукты, чтобы каждый укус приносил вам удовольствие.'
+      }
+    },
+    {
+      name: 'Каша овсяная с ягодами и орехами',
+      price: '199 Р',
+      image: '/food3.jpg',
+      description: 'Состав: овсяные хлопья, ягоды, орехи.',
+      weight: '300 г',
+      category: {
+        icon: '/icons/food.png',
+        name: 'Основные блюда',
+        description: 'Мы предлагаем широкий выбор блюд, которые подарят вам заряд энергии на весь день. Наши блюда — это сочетание вкуса и качества. Мы используем только свежие и натуральные продукты, чтобы каждый укус приносил вам удовольствие.'
+      }
+    },
+    {
+      name: 'Сырник классический с топингом',
+      price: '179 Р',
+      image: '/food1.jpg',
+      description: 'Состав: творог, мука, яйца, топинг.',
+      weight: '200 г',
+      category: {
+        icon: '/icons/food.png',
+        name: 'Основные блюда',
+        description: 'Мы предлагаем широкий выбор блюд, которые подарят вам заряд энергии на весь день. Наши блюда — это сочетание вкуса и качества. Мы используем только свежие и натуральные продукты, чтобы каждый укус приносил вам удовольствие.'
+      }
+    },
+    {
+      name: 'Сырники с маком с топингом',
+      price: '189 Р',
+      image: '/food4.jpg',
+      description: 'Состав: творог, мука, яйца, мак, топинг.',
+      weight: '200 г',
+      category: {
+        icon: '/icons/food.png',
+        name: 'Основные блюда',
+        description: 'Мы предлагаем широкий выбор блюд, которые подарят вам заряд энергии на весь день. Наши блюда — это сочетание вкуса и качества. Мы используем только свежие и натуральные продукты, чтобы каждый укус приносил вам удовольствие.'
+      }
     }
   ];
+  
   
   
   
@@ -154,16 +204,42 @@ const Menu = () => {
     return uniqueCategories;
 }
 
-  useEffect(() => {
-    menuItems.sort((item: any) => {return item.category})
-    const savedCart: any = JSON.parse(localStorage.getItem('cart') as any) || [];
-    setCart(savedCart);
-    cart
-  }, []);
+  // useEffect(() => {
+  //   menuItems.sort((item: any) => {return item.category})
+  //   const savedCart: any = JSON.parse(localStorage.getItem('cart') as any) || [];
+  //   setCart(savedCart);
+  //   cart
+  // }, []);
+
+  // useEffect(() => {
+  //   const params = new URLSearchParams(search.toString())
+  //   params.set('cart',encodeURIComponent(JSON.stringify(cart)));
+  //   localStorage.setItem('cart', JSON.stringify(cart))
+  // }, [cart, search]);
 
   useEffect(() => {
-    const params = new URLSearchParams(search.toString())
-    params.set('cart',encodeURIComponent(JSON.stringify(cart)));
+    const savedCart = localStorage.getItem('cart');
+    if (savedCart) {
+      setCart(JSON.parse(savedCart));
+    } else if (stateCart) {
+      const cartString = stateCart;
+      const initialCart = JSON.parse(decodeURIComponent(cartString)) || [];
+      setCart(initialCart);
+    }
+  }, [stateCart]);
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+    const params = new URLSearchParams(search.toString());
+    params.set('cart', encodeURIComponent(JSON.stringify(cart)));
+  }, [cart]);
+
+  useEffect(() => {
+    if (cart.length > 0) {
+      localStorage.setItem('cart', JSON.stringify(cart));
+    } else {
+      localStorage.removeItem('cart');
+    }
   }, [cart]);
 
   const addToCart = (item: any) => {
@@ -202,6 +278,12 @@ const Menu = () => {
     }, 0);
   };
 
+  const goToProductPage = (item: any) => {
+    const cartString = JSON.stringify(cart);
+    router.push(`/pages/product?product=${encodeURIComponent(JSON.stringify(item))}&cart=${encodeURIComponent(cartString)}`);
+  };
+
+
   return (
    <>
     <Header linList={getUniqueCategories(menuItems)} currentLink={getUniqueCategories(menuItems)[0].name}/>
@@ -215,11 +297,11 @@ const Menu = () => {
           if(category.name !== item.category.name ) {
             return null
           }
-          return <div 
+          return <div
             key={index} 
             className= {!cart.find((cartItem:any) => cartItem.name === item.name)?.quantity  ? css.menuItem : css.selectItem}>
           <div className={css.imgWrapper}>
-          <Image className={css.itemImage}  src={item.image} alt={item.name} fill/>
+          <Image className={css.itemImage}  src={item.image} alt={item.name} fill onClick={() => goToProductPage(item)}/>
           </div>
           <div className={css.contentWrapper}>
             <div className={css.cartTitle}>
