@@ -4,6 +4,21 @@
     height: 100vh;
     justify-content: space-between;
   }
+
+  .backBtn {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    height: 40px;
+    font-size: 16px;
+    background: rgba(123, 217, 227, 1);
+    border: none;
+    cursor: pointer;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 0;
+    z-index: 5;
+  }
   
   .imageWrapper {
     position: relative;

@@ -95,6 +95,7 @@ const ProductPage = () => {
 
   return (
     <div className={css.productPage}>
+      <button className={css.backBtn} onClick={() => router.back()}>{'<'}</button>
       <div>
       <div className={css.imageWrapper}>
         <Image className={css.image} src={product.image} alt={product.name} fill />
@@ -119,7 +120,6 @@ const ProductPage = () => {
     {existingItem ? (
         <div>
         <div className={css.quantityControls}>
-        <button onClick={() => router.back()}>{'<'}</button>
         <div className={css.countWrapper}>
             <button className={css.countBtn} onClick={() => setQuantityToAdd(quantityToAdd - 1)} disabled={quantityToAdd <= 1}>-</button>
             <span className={css.countField}>{quantityToAdd}</span>
@@ -131,7 +131,6 @@ const ProductPage = () => {
       ) : (
         
       <div className={css.quantityControls}>
-        <button onClick={() => router.back()}>{'<'}</button>
         <div className={css.countWrapper}>
         <button className={css.countBtn} onClick={() => setQuantityToAdd(quantityToAdd - 1)} disabled={quantityToAdd <= 1}>-</button>
         <span className={css.countField}>{quantityToAdd}</span>
