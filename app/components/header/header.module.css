@@ -8,7 +8,6 @@
   color: var(--tg-theme-text-color, #000000); /* Используем CSS-переменную для текста */
   border-bottom: 1px solid rgba(225, 225, 225, 1);
   padding: 8px 0px;
-  /* overflow-x: scroll; */
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
   scrollbar-width: none;  /* Firefox */
   z-index: 2;
@@ -38,11 +37,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: max-content;
   height: 28px;
   padding: 4px 8px;
   border-radius: 14px;
-  background: rgba(123, 217, 227, 1);
   border: none;
+  background: rgba(123, 217, 227, 1);
   font-size: 14px;
   margin: 0 8px;
   color: var(--tg-theme-text-color);
