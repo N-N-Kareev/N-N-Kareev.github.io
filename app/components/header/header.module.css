@@ -14,7 +14,7 @@
   z-index: 2;
 }
 
-.header ::-webkit-scrollbar {
+.header::-webkit-scrollbar {
   width: 0;
 }
 
