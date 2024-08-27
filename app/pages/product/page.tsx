@@ -104,9 +104,17 @@ const ProductPage = () => {
       <p className={css.name}>{product.name}</p>
       <p className={css.cartDescription}>{product.description}</p>
       <p className={css.cartDescription}>{product.weight}</p>
-      {existingItem && <p>Количество в корзине: {existingItem.quantity}</p>}
     </div>
     </div>
+    {existingItem && 
+      <div className={css.quantity}>
+        <p className={css.quantityDescription}>В корзине</p>
+        <p className={css.quantityItem}> 
+          <p>{existingItem.name}</p>
+          <p>{existingItem.quantity + ' шт'}</p>
+        </p>
+      </div>
+      }
       </div>
     {existingItem ? (
         <div>

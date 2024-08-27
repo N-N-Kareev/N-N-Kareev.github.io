@@ -37,6 +37,32 @@
     height: fit-content;
     padding: 0 20px;
   }
+
+  .quantity{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: auto;
+    height: 64px;
+    background: rgba(245, 245, 245, 1);
+    padding: 8px 20px;
+    margin-top: 48px;
+  }
+
+  .quantityDescription {
+    margin: 0;
+    font-size: 15px;
+    text-align: left;
+    color: var(--tg-theme-hint-color, rgba(0, 0, 0, 0.5));
+  }
+
+  p.quantityItem {
+    display: flex;
+    padding: 0 !important;
+    margin: 0 !important;
+    justify-content: space-between;
+    font-size: 15px;
+  }
   
   .quantityControls {
     padding: 0;
