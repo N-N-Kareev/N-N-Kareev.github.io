@@ -27,7 +27,7 @@
     width: 40px;
     height: 40px;
     font-size: 16px;
-    background: rgba(123, 217, 227, 1);
+    background: rgba(123, 217, 227, 0.8);
     border: none;
     cursor: pointer;
     border-radius: 20px;

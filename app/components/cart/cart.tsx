@@ -80,29 +80,49 @@ const Cart: React.FC = () => {
     router.back();
   };
 
+  const clearBin = () => {
+    setCart([])
+  }
+
   const goToProductPage = (item: any) => {
     router.push(`/pages/product?product=${encodeURIComponent(JSON.stringify(item))}`);
   };
 
   return (
-    <>
+    <div>
+      {
+      !cart.length &&    
       <button onClick={backToMenu} className={css.backBtn}>
-        Вернуться к Меню
+        {'<'}
       </button>
-      <section>
+      }
+      <section className={css.section}>
         {cart.length === 0 ? (
-          <p>Ваша корзина пуста.</p>
+          <div className={css.emtyBin}>
+          <Image src={'/bin.png'} alt='clear bin' height={24} width={24}/>
+          <p>Ваша корзина пуста</p>
+          </div>
         ) : (
-          <div className={css.cartSection}>
+          <>
+          <div className={css.btnWrapper}>
+          <button onClick={backToMenu} className={css.backBtn}>
+            {'<'}
+          </button>
+          <button className={css.binBtn} onClick={clearBin}>
+          Очисттить корзину
+          <Image src={'/bin.png'} alt='clear bin' height={24} width={24}/>
+          </button>
+          </div>
+           <div className={css.cartSection}>
             {cart.map((item, index) => (
-              <div key={index} className="cart-item">
-                <div className="cart-image">
-                  <Image className="cart-image" src={item.image} alt={item.name} width={80} height={80} onClick={() => goToProductPage(item)} />
+              <div key={index} className={css.cartItem}>
+                <div className={css.cartImageWrapper}>
+                  <Image className={css.cartImage} src={item.image} alt={item.name} width={80} height={80} onClick={() => goToProductPage(item)} />
                 </div>
                 <div className="cart-content-wrapper">
                   <div className={css.cartTitleSum}>
                     <span className={css.cartTitle}>{item.name}</span>
-                    <span className="sum">{calculate(item.quantity, item.price) + ' Р'}</span>
+                    <span className={css.sum}>{calculate(item.quantity, item.price) + ' Р'}</span>
                   </div>
                   <div className={css.quantityControls}>
                     <button className={css.countBtn} onClick={() => decreaseQuantity(item)}>
@@ -118,10 +138,11 @@ const Cart: React.FC = () => {
             ))}
             <div className="total-price">Общая стоимость: {calculateTotal()} Р</div>
           </div>
+          </>
         )}
       </section>
       <button className="btn payment">Оформить заказ</button>
-    </>
+    </div>
   );
 };
 
