@@ -116,7 +116,7 @@
   text-align: left;
   margin-bottom: 8px;
   display: -webkit-box;
-  -webkit-line-clamp: 5; /* Количество строк, которые будут видны */
+  -webkit-line-clamp: 2; /* Количество строк, которые будут видны */
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;

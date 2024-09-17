@@ -90,8 +90,8 @@ const Cart: React.FC = () => {
       <section className={css.section}>
         {cart.length === 0 ? (
           <div className={css.emtyBin}>
-          <Image src={'/bin.png'} alt='clear bin' height={24} width={24}/>
-          <p>Ваша корзина пуста</p>
+          <Image src={'/bin1.png'} alt='clear bin' height={107} width={107}/>
+          <p>У вас пока нет заказов</p>
           </div>
         ) : (
           <>
@@ -129,10 +129,10 @@ const Cart: React.FC = () => {
             ))}
             <div className="total-price">Общая стоимость: {calculateTotal()} Р</div>
           </div>
+          <button className="btn payment">Оформить заказ</button>
           </>
         )}
-      </section>
-      <button className="btn payment">Оформить заказ</button>
+      </section>    
     </div>
   );
 };
