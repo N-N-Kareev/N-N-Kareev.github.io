@@ -33,20 +33,44 @@ const Menu = () => {
 	>([]);
 
 	useEffect(() => {
+		// const fetchProducts = async () => {
+		// 	try {
+		// 		const params = new URLSearchParams({
+		// 			sortFields: "basePriceInList", // Поля сортировки
+		// 			sortOrders: "asc", // Порядок сортировки
+		// 			limit: "10", // Лимит записей
+		// 			offset: "0", // Начальная позиция
+		// 			filters: JSON.stringify([
+		// 				{ field: "basePriceInList", value: ">100" },
+		// 			]), // Фильтр
+		// 		});
+
+		// 		const response = await fetch(
+		// 			`http://localhost:3001/proxy?/dishes?${params.toString()}`
+		// 		);
+		// 		const data = await response.json();
+		// 		console.log("data", data);
+		// 		setMenuItems([]);
+		// 	} catch (error) {
+		// 		console.error("Ошибка загрузки товаров:", error);
+		// 	}
+		// };
+
 		const fetchProducts = async () => {
 			try {
-				const response = await fetch("http://localhost:3001/app/menu", {
-					headers: {
-						"User-Agent": "Custom-UA-Bypass",
-						"ngrok-skip-browser-warning": "true",
-					},
-				});
+				const response = await fetch(
+					"http://localhost:3001/proxy/dishes?limit=10&offset=0&sortFields=basePriceInList&sortOrders=asc&filters=" +
+						encodeURIComponent(
+							JSON.stringify([{ field: "basePriceInList", value: ">100" }])
+						)
+				);
 				const data = await response.json();
-				setMenuItems(data);
+				console.log("data", data);
 			} catch (error) {
 				console.error("Ошибка загрузки товаров:", error);
 			}
 		};
+
 		fetchProducts();
 	}, []);
 
