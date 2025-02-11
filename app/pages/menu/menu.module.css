@@ -1,165 +1,198 @@
 .menu {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 2fr));
-  gap: 20px;
-  padding: 0 16px !important;
-  color: var(--tg-theme-text-color);
-  margin-bottom: 4vh;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(130px, 2fr));
+	gap: 20px;
+	padding: 0 16px !important;
+	color: var(--tg-theme-text-color);
+	margin-bottom: 4vh;
 }
 
 .categoryName {
-  padding: 0;
-  margin: 8px 0;
+	padding: 0;
+	margin: 8px 0;
 }
 
 .categoryDescription {
-  font-size: 12px;
-  color: var(--tg-theme-hint-color, rgba(0, 0, 0, 0.5));
-  margin: 0 0 4px;
+	font-size: 12px;
+	color: var(--tg-theme-hint-color, rgba(0, 0, 0, 0.5));
+	margin: 0 0 4px;
 }
 
 .menuItem {
-  position: relative;
-  display: flexbox;
-  min-height: 264px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  color: var(--tg-theme-text-color);
+	position: relative;
+	display: flexbox;
+	min-height: 264px;
+	border-radius: 10px;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	color: var(--tg-theme-text-color);
 }
 
 .selectItem {
-  position: relative;
-  display: flexbox;
-  min-height: 264px;
-  border-radius: 10px;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  color: var(--tg-theme-text-color);
-  box-shadow: 0px 4px 4px 0px rgba(123, 217, 227, 1);
+	position: relative;
+	display: flexbox;
+	min-height: 264px;
+	border-radius: 10px;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	color: var(--tg-theme-text-color);
+	box-shadow: 0px 4px 4px 0px rgba(123, 217, 227, 1);
 }
 
 .imgWrapper {
-  position: relative;
-  width: 100%;
-  height: 100px;
+	position: relative;
+	width: 100%;
+	height: 100px;
 }
 
 .contentWrapper {
-  height: 88px;
-  display: flexbox;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  justify-items: center;
-  padding: 10px;
+	height: 88px;
+	display: flexbox;
+	align-items: center;
+	justify-content: center;
+	align-content: center;
+	justify-items: center;
+	padding: 10px;
 }
 
 .itemImage {
-  width: 100%;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  margin-bottom: 20px;
+	width: 100%;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	margin-bottom: 20px;
 }
 
 .quantityControls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 20px;
 }
 
 .quantityControls button {
-  height: 24px;
-  background: rgba(123, 217, 227, 1);
-  border: none;
-  cursor: pointer;
-  padding: 5px 12px;
-  border-radius: 12px;
+	height: 24px;
+	background: rgba(123, 217, 227, 1);
+	border: none;
+	cursor: pointer;
+	padding: 5px 12px;
+	border-radius: 12px;
 }
 
 .countWrapper {
-  display: flex;
-  width: 116px;
-  height: 24px;
-  align-items: center;
-  justify-content: space-between;
+	display: flex;
+	width: 116px;
+	height: 24px;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .countField {
-  min-width: 40px;
-  border-radius: 20px;
-  margin: auto 8px;
-  background: rgba(215, 244, 247, 1);
-  color: var(--tg-theme-text-color);
+	min-width: 40px;
+	border-radius: 20px;
+	margin: auto 8px;
+	background: rgba(215, 244, 247, 1);
+	color: var(--tg-theme-text-color);
 }
 
 .cartTitle {
-  font-size: 14px;
-  font-weight: 400;
-  text-align: left;
-  margin-bottom: 8px;
-  color: var(--tg-theme-text-color);
-  display: -webkit-box;
-  width: 70%;
-  -webkit-line-clamp: 2; /* Количество строк, которые будут видны */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+	font-size: 14px;
+	font-weight: 400;
+	text-align: left;
+	margin-bottom: 8px;
+	color: var(--tg-theme-text-color);
+	display: -webkit-box;
+	width: 70%;
+	-webkit-line-clamp: 2; /* Количество строк, которые будут видны */
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .cartDescription {
-  font-size: 12px;
-  text-align: left;
-  margin-bottom: 8px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2; /* Количество строк, которые будут видны */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: var(--tg-theme-hint-color, rgba(0, 0, 0, 0.5));
+	font-size: 12px;
+	text-align: left;
+	margin-bottom: 8px;
+	display: -webkit-box;
+	-webkit-line-clamp: 2; /* Количество строк, которые будут видны */
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: var(--tg-theme-hint-color, rgba(0, 0, 0, 0.5));
 }
 
 .cartWeight {
-  font-size: 12px;
-  text-align: left;
-  color: var(--tg-theme-hint-color, rgba(0, 0, 0, 0.5));
+	font-size: 12px;
+	text-align: left;
+	color: var(--tg-theme-hint-color, rgba(0, 0, 0, 0.5));
 }
 
 .btn {
-  background: rgba(123, 217, 227, 1);
-  border: none;
-  cursor: pointer;
-  padding: 10px 20px;
-  border-radius: 10px;
-  margin-bottom: 30px;
-  margin-top: 30px;
-  color: var(--tg-theme-button-text-color);
+	background: rgba(123, 217, 227, 1);
+	border: none;
+	cursor: pointer;
+	padding: 10px 20px;
+	border-radius: 10px;
+	margin-bottom: 30px;
+	margin-top: 30px;
+	color: var(--tg-theme-button-text-color);
 }
 
 .priceBtn {
-  width: 110px;
-  padding: 0;
-  color: var(--tg-theme-button-text-color);
+	width: 110px;
+	padding: 0;
+	color: var(--tg-theme-button-text-color);
 }
 
 button.countBtn {
-  width: 24px;
-  height: 24px;
-  padding: 0;
-  border-radius: 12px;
-  align-items: center;
-  justify-content: center;
-  justify-items: center;
-  align-content: center;
-  justify-self: center;
-  text-align: center;
+	width: 24px;
+	height: 24px;
+	padding: 0;
+	border-radius: 12px;
+	align-items: center;
+	justify-content: center;
+	justify-items: center;
+	align-content: center;
+	justify-self: center;
+	text-align: center;
 }
 
 .sum {
-  font-weight: bold;
-  color: var(--tg-theme-text-color);
+	font-weight: bold;
+	color: var(--tg-theme-text-color);
+}
+
+.companyInfoSection {
+	padding: 20px;
+	padding-bottom: 60px;
+	background-color: #f9f9f9;
+	margin-top: 20px;
+	border-top: 1px solid #ddd;
+}
+
+.companyInfoSection h2 {
+	font-size: 24px;
+	margin-bottom: 15px;
+	color: #333;
+}
+
+.companyInfo {
+	font-size: 16px;
+	line-height: 1.6;
+	color: #555;
+}
+
+.companyInfo p {
+	margin-bottom: 10px;
+}
+
+.companyInfo ul {
+	list-style-type: none;
+	padding-left: 20px;
+}
+
+.companyInfo ul li {
+	margin-bottom: 5px;
 }
