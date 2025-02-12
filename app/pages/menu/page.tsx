@@ -13,6 +13,7 @@ const Menu = () => {
 	const [cart, setCart]: any = useState([]);
 	const params = new URLSearchParams(search.toString());
 	const stateCart = search.get("cart");
+	const [isLoading, setIsLoading] = useState(true);
 
 	const companyInfo = {
 		name: 'Кофейня "Mokaлайт"',
@@ -229,12 +230,61 @@ const Menu = () => {
 		return uniqueCategories;
 	}
 
+	useEffect(() => {
+		const fetchDishes = async () => {
+			try {
+				const response = await fetch("http://localhost:3001/proxy/dishes");
+				if (!response.ok) {
+					throw new Error(`Ошибка: ${response.status}`);
+				}
+				const data = await response.json();
+				console.log(data);
+				// const fullData =
+			} catch (error) {
+				console.error("Ошибка при получении данных:", error);
+			} finally {
+				setIsLoading(false);
+			}
+		};
+
+		fetchDishes();
+	}, []);
+
 	// useEffect(() => {
-	//   menuItems.sort((item: any) => {return item.category})
-	//   const savedCart: any = JSON.parse(localStorage.getItem('cart') as any) || [];
-	//   setCart(savedCart);
-	//   cart
+	// 	menuItems.sort((item: any) => {
+	// 		return item.category;
+	// 	});
+	// 	const response = fetch("http://localhost:3001/proxy/dishes").then((data) =>
+	// 		data.json()
+	// 	);
+	// 	console.log("response", response);
+	// 	// const savedCart: any =
+	// 	// 	JSON.parse(localStorage.getItem("cart") as any) || [];
+	// 	// setCart(savedCart);
+	// 	// cart;
 	// }, []);
+
+	useEffect(() => {
+		const fetchDishes = async () => {
+			try {
+				const response = await fetch("http://localhost:3001/proxy/dishes");
+				if (!response.ok) {
+					throw new Error(`Ошибка: ${response.status}`);
+				}
+				const data = await response.json();
+				const sortedItems = data.sort((a, b) =>
+					a.category.localeCompare(b.category)
+				);
+				setMenuItems(sortedItems);
+			} catch (error) {
+				console.error("Ошибка при получении данных:", error);
+			} finally {
+				setIsLoading(false);
+			}
+		};
+
+		fetchDishes();
+	}, []);
 
 	// useEffect(() => {
 	//   const params = new URLSearchParams(search.toString())
